@@ -1,11 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>QA Mentor – Сайт-візитка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+  <header>
+    <div class="container header-inner">
+      <div class="logo">QA Mentor</div>
+      <nav>
+        <ul>
+          <li><a href="#about">Про мене</a></li>
+          <li><a href="#services">Менторство</a></li>
+          <li><a href="#testimonials">Відгуки</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Контакт</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button class="btn-ghost btn theme-toggle" type="button" id="themeToggle">
+          Тема
+        </button>
+      </div>
+    </div>
+  </header>
+
+    <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1 class="hero-title">Привіт, я QA-ментор</h1>
+        <p class="hero-subtitle">
+          Допомагаю студентам та джунам перейти в тестування: від перших тест-кейсів до
+          успішної співбесіди на Junior QA.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Manual &amp; Web QA</span>
+          <span class="tag">Рев’ю резюме</span>
+          <span class="tag">Підготовка до співбесід</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#contact"><button class="btn">Записатися на консультацію</button></a>
+          <a href="#services"><button class="btn btn-ghost">Переглянути програми</button></a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-avatar">QA</div>
+        <div><strong>QA-ментор для початківців</strong></div>
+        <div style="font-size: 0.85rem; margin-top: 4px;">
+          Разом складаємо план навчання, відпрацьовуємо практику та готуємося до реальних задач.
+        </div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <div style="font-weight: 600;">7+ роки</div>
+            <div>комерційного досвіду в QA</div>
+          </div>
+          <div class="hero-stat">
+            <div style="font-weight: 600;">15+ учнів</div>
+            <div>пройшли менторство</div>
+          </div>
+          <div class="hero-stat">
+            <div style="font-weight: 600;">3 домени</div>
+            <div>FinTech, E-commerce, EdTech</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Про мене</div>
+          <div class="section-subtitle">Хто я і як можу допомогти</div>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <p>
+            Я працюю QA-інженером і допомагаю людям, які тільки починають шлях у тестуванні.
+            На менторстві ми не просто «читаємо теорію», а працюємо з реальними прикладами:
+            тест-кейси, баг-репорти, задачі з пет-проєктів.
+          </p>
+          <p>
+            Моя ціль – щоб ти чітко розумів(ла), <strong>що саме робить QA</strong>, мав(ла)
+            <strong>портфоліо з практичними роботами</strong> і відчував(ла) себе впевнено на співбесіді.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Web &amp; API testing</span>
+            <span class="badge">Тестова документація</span>
+            <span class="badge">Кар’єрні консультації</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <strong>Чим займаємось на менторстві:</strong>
+          <ul>
+            <li>складаємо індивідуальний план навчання;</li>
+            <li>розбираємо теорію тестування на простих прикладах;</li>
+            <li>створюємо тест-кейси, чеклісти, баг-репорти;</li>
+            <li>імітуємо технічну співбесіду на Junior QA;</li>
+            <li>розбираємо та покращуємо твоє резюме й профіль LinkedIn.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Програми менторства</div>
+          <div class="section-subtitle">Обери формат, який підходить саме тобі</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title">QA Starter</div>
+          <div>Для тих, хто тільки починає. Розбираємо базову теорію та терміни, перші практичні завдання.</div>
+          <div class="chip-row">
+            <span class="chip">Рівень: Beginner</span>
+            <span class="chip">4 тижні</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Job Ready</div>
+          <div>Готуємося до пошуку роботи: резюме, LinkedIn, типові питання на співбесідах, тестові завдання.</div>
+          <div class="chip-row">
+            <span class="chip">Рівень: Pre-Junior</span>
+            <span class="chip">3–4 тижні</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Practice &amp; Feedback</div>
+          <div>Розбір твоїх пет-проєктів, тест-кейсів та баг-репортів з детальним фідбеком.</div>
+          <div class="chip-row">
+            <span class="chip">Рівень: Mixed</span>
+            <span class="chip">Індивідуально</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Відгуки учнів</div>
+          <div class="section-subtitle">Коротко про досвід тих, хто вже пройшов менторство</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card testimonial">
+          <div>«За два місяці зробили резюме, пет-проєкт та підготувалися до співбесід. Після кількох інтерв’ю я отримала офер на Junior QA.»</div>
+          <div class="testimonial-name">Олена</div>
+          <div class="testimonial-role">Junior QA, FinTech</div>
+        </div>
+        <div class="card testimonial">
+          <div>«Найбільше сподобалось, що ментор дає чесний фідбек і конкретні кроки: що підтягнути, що прибрати, які задачі проробити.»</div>
+          <div class="testimonial-name">Андрій</div>
+          <div class="testimonial-role">Студент, підготовка до першої роботи</div>
+        </div>
+        <div class="card testimonial">
+          <div>«Ми розбирали мої тест-кейси та баг-репорти. Після серії сесій я почав набагато краще формулювати думки та помилки.»</div>
+          <div class="testimonial-name">Ігор</div>
+          <div class="testimonial-role">Manual QA, 1 рік досвіду</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-title">FAQ</div>
+          <div class="section-subtitle">Часті запитання про менторство</div>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Чи потрібен технічний бекграунд, щоб почати?</summary>
+          <p>Ні. Достатньо базового рівня комп’ютерної грамотності та бажання вчитись. Я допоможу розкласти все по поличках.</p>
+        </details>
+        <details>
+          <summary>Скільки триває одна сесія менторства?</summary>
+          <p>Зазвичай 60–90 хвилин. Формат підбираємо індивідуально під твій розклад.</p>
+        </details>
+        <details>
+          <summary>Чи гарантуєш ти працевлаштування?</summary>
+          <p>Я не можу гарантувати офер, але допоможу зробити все, що від тебе залежить: сильне резюме, впевнені відповіді та реальний досвід задач.</p>
+        </details>
+        <details>
+          <summary>Чи можна оплатити лише кілька сесій, а не всю програму?</summary>
+          <p>Так, можна домовитися про разові консультації або невеликий пакет сесій.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Залишити заявку</div>
+          <div class="section-subtitle">Напиши кілька слів про себе — і я зв’яжусь з тобою</div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <form id="contactForm">
+          <div class="form-row">
+            <label for="name">Ім’я</label>
+            <input type="text" id="name" name="name" placeholder="Твоє ім’я" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <div class="helper">Я не передаю email третім особам.</div>
+          </div>
+          <div class="form-row">
+            <label for="level">Твій рівень у QA</label>
+            <select id="level" name="level">
+              <option value="beginner">Тільки починаю</option>
+              <option value="learning">Уже навчаюся, хочу структуру</option>
+              <option value="working">Вже працюю, хочу рости</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="goal">Що ти хочеш від менторства?</label>
+            <textarea id="goal" name="goal" placeholder="Коротко опиши свій запит..." required></textarea>
+          </div>
+          <button class="btn" type="submit">Надіслати</button>
+          <div id="formMessage" class="form-message"></div>
+        </form>
+
+        <div class="contact-side">
+          <p><strong>Як проходить робота:</strong></p>
+          <ul>
+            <li>Ти залишаєш заявку з коротким описом свого запиту.</li>
+            <li>Я відповідаю на email і пропоную варіанти часу.</li>
+            <li>Проводимо першу сесію, визначаємо план.</li>
+          </ul>
+          <div class="contact-highlight">
+            Якщо ти ще не впевнений(а), що менторство тобі підходить — можна почати з
+            однієї ознайомчої сесії.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 QA Mentor. Умовний сайт-візитка для лабораторної роботи.</div>
+      <div class="footer-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Тема (light/dark) з localStorage
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        body.classList.add("dark");
+      } else {
+        body.classList.remove("dark");
+      }
+    }
+
+    const savedTheme = localStorage.getItem("qa_theme") || "light";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const current = body.classList.contains("dark") ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      applyTheme(next);
+      localStorage.setItem("qa_theme", next);
+    });
+
+    // Обробка форми (демо-логіка для лаби)
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const goal = form.goal.value.trim();
+
+      if (!name || !email || !goal) {
+        formMessage.textContent = "Заповни, будь ласка, усі обов’язкові поля.";
+        formMessage.className = "form-message err";
+        return;
+      }
+
+      // Імітація відправки: зберігаємо в localStorage
+      const stored = JSON.parse(localStorage.getItem("qa_requests") || "[]");
+      stored.push({
+        name,
+        email,
+        level: form.level.value,
+        goal,
+        createdAt: new Date().toISOString(),
+      });
+      localStorage.setItem("qa_requests", JSON.stringify(stored));
+
+      formMessage.textContent = "Дякую! Заявку збережено (демо для лаби).";
+      formMessage.className = "form-message ok";
+      form.reset();
+    });
+  </script>
 </body>
 </html>
