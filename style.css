@@ -1,331 +1,506 @@
-:root {
-  --gray-light: #E6FFFA;  /* дуже світла м’ята, фон */
-  --gray-mid:   #B2F5EA;  /* трішки темніша м’ята, підкладки */
-  --red-main:   #38B2AC;  /* основний м’ятно-бірюзовий акцент (кнопки) */
-  --brown-dark: #285E61;  /* темний бірюзовий для заголовків/рамок */
-  --green-dark: #2C7A7B;  /* ще один темний м’ятний для акцентів */
+/* =========================
+   Modern Report UI — WakeFlow Report (Labs 1–2)
+   Works with existing HTML structure/classes:
+   header, .header-top, .lab-tabs, .lab-tab, .layout, aside, .oval-button,
+   main, .tab-section, pre, code, table, .report-form, .page-footer
+========================= */
+
+:root{
+  /* Brand-ish palette (mint/teal) but more mature */
+  --bg0: #061a1c;
+  --bg1: #071f22;
+  --bg2: #0a2a2f;
+
+  --surface: rgba(255,255,255,.06);
+  --surface-2: rgba(255,255,255,.10);
+  --stroke: rgba(255,255,255,.14);
+  --stroke-2: rgba(255,255,255,.22);
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+
+  --accent: #34d399;     /* green-mint */
+  --accent-2: #22c55e;   /* greener */
+  --teal: #2dd4bf;       /* teal */
+  --warn: #f59e0b;
+  --danger: #ef4444;
+
+  --shadow: 0 18px 55px rgba(0,0,0,.35);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.25);
+
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --focus: 0 0 0 4px rgba(45,212,191,.22);
+
+  --maxw: 1200px;
 }
 
-* {
-  box-sizing: border-box;
+*{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: #d1f9f6;
-  color: #000;
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.55;
+  color: var(--text);
+
+  /* layered background */
+  background:
+    radial-gradient(1100px 700px at 15% 10%, rgba(52,211,153,.22), transparent 55%),
+    radial-gradient(900px 620px at 85% 18%, rgba(45,212,191,.18), transparent 55%),
+    radial-gradient(900px 620px at 50% 105%, rgba(34,197,94,.14), transparent 55%),
+    linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 45%, var(--bg2) 100%);
 }
 
-/* ========= HEADER ========= */
+/* =========================
+   HEADER
+========================= */
 
-header {
-  text-align: center;
-  padding: 10px 20px 0;
-  border-bottom: 2px solid var(--brown-dark);
+header{
+  border-bottom: 1px solid var(--stroke);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  backdrop-filter: blur(10px);
 }
 
-.header-top {
-  display: flex;
+.header-top{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 18px 8px;
+  display:flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  gap: 18px;
 }
 
-.title-block {
-  flex: 1;
-}
-
-h1 {
-  font-size: 20px;
-  margin: 5px 0;
-  text-transform: uppercase;
-  color: var(--brown-dark);
-}
-
-.subtitle {
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.student-info {
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.photo-box {
-  border: 2px solid #000;
-  padding: 5px 10px;
-  font-size: 12px;
+.title-block{  
   text-align: center;
-  min-width: 110px;
+  flex: 1;
+  grid-column: 2;
+  text-align: center;}
+
+h1{
+  margin: 0 0 6px;
+  font-size: 20px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text);
 }
 
-.photo-box span {
-  display: block;
-}
-
-.photo-box img {
-  display: block;
-  margin: 5px auto 0;
-  width: 90px;
-  height: 110px;
-  object-fit: cover;
-}
-
-/* ========= LAB TABS (TOP) ========= */
-
-.lab-tabs {
-  display: flex;
-  /* РАНІШЕ БУЛО flex-wrap: wrap; justify-content: center;  */
-  flex-wrap: nowrap;         /* все в один рядок */
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 10px 10px 5px;
-  overflow-x: auto;          /* горизонтальний скрол */
-  overflow-y: hidden;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch; /* приємний скрол на мобільних */
-}
-
-.lab-tab {
-  flex: 0 0 auto;            /* не стискаємо і не переносимо */
-  padding: 6px 14px;
-  border-radius: 30px;
-  border: 2px solid #000;
-  background: var(--gray-light);
-  font-size: 13px;
+.subtitle{
+  font-weight: 700;
+  color: var(--muted);
   text-decoration: none;
-  color: #000;
+  display:inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed rgba(255,255,255,.22);
+}
+
+.student-info{
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* photo */
+.photo-box{
+  min-width: 170px;     /* більше місця під фото */
+  padding: 14px;
+  border-radius: 22px;  /* рамка боксу може лишатись "скляною" */
+  grid-column: 3;
+  justify-self: end;
+}
+
+.photo-box img{
+  width: 140px;         /* збільшили */
+  height: 140px;        /* квадрат -> круг */
+  border-radius: 50%;   /* робить коло */
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.18);
+  box-shadow: 0 14px 34px rgba(0,0,0,.25);
+}
+
+/* =========================
+   TOP LAB TABS
+========================= */
+
+.lab-tabs{
+  justify-content: center;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px 18px 14px;
+  display:flex;
+  gap: 10px;
+  overflow-x:auto;
+  overflow-y:hidden;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
-.lab-tabs::-webkit-scrollbar {
-  height: 6px;
+.lab-tabs::-webkit-scrollbar{ height: 7px; }
+.lab-tabs::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.12);
+  border-radius: 999px;
 }
 
-.lab-tabs::-webkit-scrollbar-thumb {
-  background: var(--gray-mid);
-  border-radius: 3px;
+.lab-tab{
+  flex: 0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding: 9px 14px;
+  border-radius: 999px;
+  text-decoration:none;
+
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+
+  font-size: 13px;
+  font-weight: 650;
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 
-.lab-tab.active {
-  background: #33ebb7;
-  border-color: var(--brown-dark);
-  font-weight: 600;
+.lab-tab:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
 }
 
-/* ========= LAYOUT ========= */
-
-.layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 15px;
-  padding: 15px 25px 30px;
+.lab-tab.active{
+  background:
+    linear-gradient(90deg, rgba(45,212,191,.22), rgba(52,211,153,.22));
+  border-color: rgba(45,212,191,.45);
+  box-shadow: 0 10px 24px rgba(45,212,191,.15);
 }
 
-/* ========= LEFT MENU ========= */
+.lab-tab:focus{ outline:none; box-shadow: var(--focus); }
 
-aside {
-  display: flex;
+/* =========================
+   LAYOUT
+========================= */
+
+.layout{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 18px 28px;
+
+  display:grid;
+  grid-template-columns: 290px 1fr;
+  gap: 16px;
+}
+
+/* =========================
+   LEFT MENU
+========================= */
+
+aside{
+  display:flex;
   flex-direction: column;
   gap: 10px;
+
+  padding: 14px;
+  border-radius: var(--radius-lg);
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
 }
 
-.oval-button {
-  display: block;
-  padding: 10px 18px;
-  border-radius: 40px;
-  border: 2px solid #000;
-  background: #fff;
-  text-decoration: none;
-  color: #000;
+.oval-button{
+  display:block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration:none;
+
+  color: var(--text);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+
   font-size: 13px;
-  text-align: center;
-  line-height: 1.3;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-align:center;
+  line-height: 1.25;
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 
-.oval-button:hover {
-  background: var(--gray-light);
+.oval-button:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.22);
 }
 
-.oval-button.primary {
-  background: var(--red-main);
-  color: #fff;
-  border-color: var(--red-main);
-  font-weight: 600;
+.oval-button.primary{
+  background:
+    linear-gradient(90deg, rgba(45,212,191,.24), rgba(52,211,153,.26));
+  border-color: rgba(52,211,153,.45);
+  box-shadow: 0 10px 24px rgba(52,211,153,.14);
+  font-weight: 750;
 }
 
-/* ========= MAIN CONTENT ========= */
+.oval-button:focus{ outline:none; box-shadow: var(--focus); }
 
-main {
-  border: 2px solid #000;
-  min-height: 420px;
-  padding: 15px 20px 25px;
-  background: #fff;
-  overflow-y: auto;
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main{
+  padding: 18px 20px 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow);
+
+  min-height: 520px;
+  overflow: auto;
 }
 
-main h2 {
-  text-align: center;
+main h2{
+  margin: 0 0 12px;
+  text-align:center;
   font-size: 18px;
-  margin-top: 0;
-  color: var(--green-dark);
+  color: var(--text);
 }
 
-main h3 {
-  margin-top: 18px;
-  color: var(--green-dark);
+main h3{
+  margin: 18px 0 8px;
+  color: var(--teal);
+  letter-spacing: .01em;
 }
 
-main h4 {
-  margin-top: 12px;
-  color: var(--brown-dark);
+main h4{
+  margin: 12px 0 6px;
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
 }
 
-p {
+p{
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
   text-align: justify;
+}
+
+ul, ol{
+  margin: 6px 0 12px 18px;
   font-size: 14px;
+  color: rgba(255,255,255,.88);
 }
 
-ul,
-ol {
-  font-size: 14px;
-  margin-top: 5px;
+/* Sections (tabs) */
+.tab-section{ display:none; }
+.tab-section.active{ display:block; }
+
+/* =========================
+   CODE, TABLES, IMAGES
+========================= */
+
+code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .95em;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 2px 6px;
+  border-radius: 8px;
+  color: rgba(255,255,255,.92);
 }
 
-/* ========= TABS (SECTIONS) ========= */
-
-.tab-section {
-  display: none;
-}
-
-.tab-section.active {
-  display: block;
-}
-
-/* ========= CODE, TABLES, IMAGES ========= */
-
-code {
-  font-family: "Consolas", "Fira Code", monospace;
-  background: var(--gray-light);
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-pre {
-  background: var(--gray-light);
-  padding: 10px;
+pre{
+  margin: 10px 0 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
   overflow-x: auto;
-  border-radius: 6px;
-  border: 1px solid var(--gray-mid);
   font-size: 13px;
+  color: rgba(255,255,255,.92);
 }
 
-table {
+table{
+  width:100%;
   border-collapse: collapse;
-  width: 100%;
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 14px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,.14);
 }
 
-table,
-th,
-td {
-  border: 1px solid #000;
-}
-
-th,
-td {
-  padding: 4px 6px;
+th, td{
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
   text-align: left;
 }
 
-.screenshot {
-  margin-top: 8px;
+th{
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  font-weight: 750;
+}
+
+tr:hover td{
+  background: rgba(255,255,255,.04);
+}
+
+.screenshot{
+  margin-top: 10px;
   text-align: center;
   font-size: 13px;
+  color: var(--muted);
 }
 
-.screenshot img {
-  max-width: 90%;
-  border: 1px solid var(--gray-mid);
+.screenshot img{
+  max-width: 95%;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow-soft);
 }
 
-/* ========= FORM ========= */
+/* Links */
+a{ color: var(--teal); }
+a:hover{ color: var(--accent); }
 
-.links-list a {
-  color: var(--red-main);
+/* =========================
+   FORM
+========================= */
+
+.links-list a{
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(45,212,191,.35);
 }
 
-.report-form {
+.links-list a:hover{
+  color: var(--accent);
+  border-bottom-color: rgba(52,211,153,.45);
+}
+
+.report-form{
   margin-top: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  background: var(--gray-light);
-  border: 1px solid var(--gray-mid);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
 }
 
-.report-form label {
-  display: block;
-  margin-top: 5px;
+.report-form label{
+  display:block;
+  margin-top: 10px;
   font-size: 13px;
+  color: var(--muted);
 }
 
 .report-form input,
-.report-form textarea {
-  width: 100%;
-  padding: 5px;
-  margin-top: 3px;
-  border-radius: 4px;
-  border: 1px solid var(--gray-mid);
-  font-size: 13px;
+.report-form textarea{
+  width:100%;
+  margin-top: 6px;
+  padding: 10px 10px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.20);
+  color: var(--text);
+
+  font-size: 14px;
   font-family: inherit;
+
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
-.report-form button {
-  margin-top: 8px;
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: none;
-  background: var(--green-dark);
-  color: #fff;
-  cursor: pointer;
+.report-form input:focus,
+.report-form textarea:focus{
+  outline:none;
+  border-color: rgba(45,212,191,.55);
+  box-shadow: var(--focus);
+  background: rgba(0,0,0,.26);
+}
+
+.report-form button{
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(52,211,153,.45);
+  background:
+    linear-gradient(90deg, rgba(45,212,191,.22), rgba(52,211,153,.26));
+  color: var(--text);
+  cursor:pointer;
   font-size: 13px;
+  font-weight: 750;
+
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
-/* ========= HERO AVATAR (зображення ментора) ========= */
+.report-form button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(52,211,153,.12);
+  border-color: rgba(45,212,191,.55);
+}
 
-.hero-avatar {
+.report-form button:focus{ outline:none; box-shadow: var(--focus); }
+
+/* Avatar helper if used somewhere */
+.hero-avatar{
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* ========= FOOTER ========= */
+/* =========================
+   FOOTER
+========================= */
 
-.page-footer {
-  text-align: center;
+.page-footer{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 18px 18px;
+  text-align:center;
   font-size: 12px;
-  padding: 10px 0 15px;
-  border-top: 1px solid var(--gray-mid);
-  color: #555;
+  color: rgba(255,255,255,.62);
+  border-top: 1px solid rgba(255,255,255,.10);
 }
 
-/* ========= ADAPTIVE ========= */
+/* =========================
+   RESPONSIVE
+========================= */
 
-@media (max-width: 900px) {
-  .layout {
+@media (max-width: 980px){
+  .layout{
     grid-template-columns: 1fr;
   }
 
-  aside {
+  aside{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .oval-button {
-    min-width: 200px;
+  .oval-button{
+    min-width: 210px;
   }
+}
+
+@media (max-width: 520px){
+  h1{ font-size: 18px; }
+  .header-top{ align-items: center; }
+  .photo-box{ min-width: 110px; }
+  main{ padding: 16px; }
+}
+
+/* Якщо меню приховане через hidden — не показувати його взагалі */
+[data-lab-menu][hidden]{
+  display: none !important;
+}
+
+/* Меню активної лабораторної — як колонка з gap */
+[data-lab-menu]:not([hidden]){
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }

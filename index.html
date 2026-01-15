@@ -2,9 +2,11 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Звіт: сайт-візитка «QA Mentor»</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Звіт з Веб програмування</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <header>
   <div class="header-top">
@@ -17,350 +19,217 @@
     </div>
 
     <div class="photo-box">
-      <img src="img/st_photo.png" alt="Фото студента">
+      <img src="img/photo_nn.jpeg" alt="Фото студента">
     </div>
   </div>
 
   <!-- вкладки з лабораторними -->
-  <nav class="lab-tabs">
-    <a class="lab-tab active" href="#lab1">Лабораторна робота №1</a>
-    <a class="lab-tab" href="#lab2">Лабораторна робота №2</a>
-    <a class="lab-tab" href="#lab3">Лабораторна робота №3</a>
-    <a class="lab-tab" href="#lab4">Лабораторна робота №4</a>
-    <a class="lab-tab" href="#lab5">Лабораторна робота №5</a>
-    <a class="lab-tab" href="#lab6">Лабораторна робота №6</a>
-    <a class="lab-tab" href="#lab7">Лабораторна робота №7</a>
-    <a class="lab-tab" href="#lab8">Лабораторна робота №8</a>
-    <a class="lab-tab" href="#lab9">Лабораторна робота №9</a>
+  <nav class="lab-tabs" aria-label="Перемикач лабораторних робіт">
+    <a class="lab-tab active" href="#lab1" data-lab-tab="lab1">Лабораторна робота №1</a>
+    <a class="lab-tab" href="#lab2" data-lab-tab="lab2">Лабораторна робота №2</a>
+     <a class="lab-tab" href="#lab3" data-lab-tab="lab3">Лабораторна робота №3</a>
   </nav>
 </header>
 
 <div class="layout">
-  <!-- меню зліва (таби) -->
-  <aside>
-    <a class="oval-button primary" href="#topic-goal-location">Лабораторна робота №1</a>
-    <a class="oval-button" href="#topic-goal-location">Тема, мета, місце розташування</a>
-    <a class="oval-button" href="#business-logic">Опис предметного середовища<br>та бізнес-логіки</a>
-    <a class="oval-button" href="#structure">Структура документа</a>
-    <a class="oval-button" href="#table-code">HTML-код таблиці</a>
-    <a class="oval-button" href="#image-code">HTML-код зображення</a>
-    <a class="oval-button" href="#lists-code">HTML-код списків</a>
-    <a class="oval-button" href="#form-code">HTML-код форми</a>
-    <a class="oval-button" href="#main-page">Головна сторінка WEB-застосунку</a>
-    <a class="oval-button" href="#main-page-code">Код головної сторінки</a>
-    <a class="oval-button" href="#conclusion">Висновки</a>
+  <!-- меню зліва -->
+  <aside aria-label="Навігація по розділах">
+
+    <!-- MENU: LAB 1 -->
+    <div data-lab-menu="lab1">
+      <a class="oval-button primary" href="#lab1-intro">Лабораторна робота №1</a>
+      <a class="oval-button" href="#lab1-topic">Тема, мета, місце розташування</a>
+      <a class="oval-button" href="#lab1-business">Опис предметного середовища<br>та бізнес-логіки</a>
+      <a class="oval-button" href="#lab1-structure">Структура документа</a>
+      <a class="oval-button" href="#lab1-table">HTML-код таблиці</a>
+      <a class="oval-button" href="#lab1-image">HTML-код зображення</a>
+      <a class="oval-button" href="#lab1-lists">HTML-код списків</a>
+      <a class="oval-button" href="#lab1-form">HTML-код форми</a>
+      <a class="oval-button" href="#lab1-main">Головна сторінка WEB-застосунку</a>
+      <a class="oval-button" href="#lab1-main-code">Код головної сторінки</a>
+      <a class="oval-button" href="#lab1-conclusion">Висновки</a>
+    </div>
+
+    <!-- MENU: LAB 2 -->
+    <div data-lab-menu="lab2" hidden>
+      <a class="oval-button primary" href="#lab2-intro">Лабораторна робота №2</a>
+      <a class="oval-button" href="#lab2-topic">Тема, мета, місце розташування</a>
+      <a class="oval-button" href="#lab2-css">Опис CSS-оформлення</a>
+      <a class="oval-button" href="#lab2-layout">Сітка та компонування</a>
+      <a class="oval-button" href="#lab2-typography">Типографіка і палітра</a>
+      <a class="oval-button" href="#lab2-responsive">Адаптивність</a>
+      <a class="oval-button" href="#lab2-code">Фрагменти CSS-коду</a>
+      <a class="oval-button" href="#lab2-screens">Скріншоти</a>
+      <a class="oval-button" href="#lab2-conclusion">Висновки</a>
+    </div>
+
+     <!-- MENU: LAB 3 -->
+    <div data-lab-menu="lab3" hidden>
+      <a class="oval-button primary" href="#lab3-intro">Лабораторна робота №3</a>
+      <a class="oval-button" href="#lab2-topic">Тема, мета, місце розташування</a>
+    </div>
+
   </aside>
 
-  <!-- місце виведення інформації -->
-  <main>
-    <h2 id="lab1">Лабораторна робота №1: сайт-візитка «QA Mentor»</h2>
+  <!-- контент -->
+  <main aria-label="Контент звіту">
 
-    <!-- 1. Тема, мета, посилання -->
-    <section id="topic-goal-location" class="tab-section">
-      <h3>1. Тема, мета, місце розташування ЛР №1.1</h3>
+    <!-- ===================== -->
+    <!-- LAB 1 CONTENT -->
+    <!-- ===================== -->
+    <section data-lab="lab1">
+      <h2 id="lab1">Лабораторна робота №1: Вейк-школа «WakeFlow»</h2>
 
-      <h4>Тема WEB-застосунку</h4>
-      <p><strong>Тема:</strong> Сайт-візитка «QA Mentor».</p>
+      <section id="lab1-intro" class="tab-section">
+        <h3>Вступ</h3>
+        <p>
+          Тут буде загальний опис лабораторної роботи №1 та посилання на реалізований веб-застосунок.
+          (Контент додамо наступним кроком.)
+        </p>
+      </section>
 
-      <h4>Мета створення WEB-застосунку</h4>
-      <p>
-        <strong>Мета:</strong> Створити персональний сайт-візитку наставника з
-        тестування ПЗ (QA Mentor), який містить інформацію про досвід,
-        послуги менторства, програми навчання, відгуки студентів та контактну
-        форму для запису на консультацію.
-      </p>
+      <section id="lab1-topic" class="tab-section">
+        <h3>1. Тема, мета, місце розташування</h3>
+       <h3>1. Тема, мета, місце розташування</h3>
+          <h4>Тема WEB-застосунку</h4>
+          <p><strong>Тема:</strong> тестовий WEB-застосунок вейк-школи <strong>WakeFlow</strong>.</p>
+          <h4>Мета створення WEB-застосунку</h4>
+          <p>
+            <strong>Мета:</strong> створити односторінковий сайт вейк-школи з інформативними розділами
+            (про школу, послуги, команда, галерея, контакти) та формою запису на заняття.
+            Форма має збирати дані користувача і відправляти заявку до Google Sheets через Google Apps Script.
+          </p>
+          <h4>Місце розташування роботи</h4>
+          <ul class="links-list">
+            <li>Репозиторій з кодом: <a href="#" target="_blank" rel="noopener">посилання на GitHub</a></li>
+            <li>Демо-сторінка (GitHub Pages): <a href="#" target="_blank" rel="noopener">посилання на live</a></li>
+            <li>Сторінка «Бізнес-логіка» (business.html): <a href="#" target="_blank" rel="noopener">посилання</a></li>
+          </ul>
+      </section>
 
-      <h4>Місце розташування ЛР №1.1 та репозиторії</h4>
-      <ul class="links-list">
-        <li>Репозиторій з кодом сайту-візитки:
-          <a href="#" target="_blank">посилання на GitHub</a></li>
-        <li>Жива сторінка сайту-візитки:
-          <a href="#" target="_blank">посилання на GitHub Pages / Netlify</a></li>
-        <li>Репозиторій звітного HTML-документа:
-          <a href="#" target="_blank">посилання на GitHub</a></li>
-        <li>Жива сторінка звітного HTML-документа:
-          <a href="#" target="_blank">посилання на GitHub Pages</a></li>
-      </ul>
+      <section id="lab1-business" class="tab-section">
+        <h3>2. Опис предметного середовища та бізнес-логіки</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-structure" class="tab-section">
+        <h3>3. Структура документа</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-table" class="tab-section">
+        <h3>4. HTML-код таблиці</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-image" class="tab-section">
+        <h3>5. HTML-код зображення</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-lists" class="tab-section">
+        <h3>6. HTML-код списків</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-form" class="tab-section">
+        <h3>7. HTML-код форми</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-main" class="tab-section">
+        <h3>8. Головна сторінка WEB-застосунку</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-main-code" class="tab-section">
+        <h3>9. Код головної сторінки</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab1-conclusion" class="tab-section">
+        <h3>10. Висновки</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
     </section>
 
-    <!-- 2. Бізнес-логіка -->
-    <section id="business-logic" class="tab-section">
-      <h3>2. Опис предметного середовища та бізнес-логіки</h3>
-      <p>
-        Предметне середовище — ринок ІТ-освіти та менторства в галузі
-        забезпечення якості програмного забезпечення. Ключові сутності:
-        відвідувач сайту, ментор, програма навчання, консультація, відгук.
-      </p>
-      <p>
-        Сайт-візитка «QA Mentor» дозволяє відвідувачам ознайомитись із
-        досвідом ментора, переглянути перелік послуг (індивідуальні сесії,
-        міні-курси, ревʼю резюме, підготовка до співбесіди), залишити заявку
-        на консультацію через форму зворотного звʼязку.
-      </p>
+    <!-- ===================== -->
+    <!-- LAB 2 CONTENT -->
+    <!-- ===================== -->
+    <section data-lab="lab2" hidden>
+      <h2 id="lab2">Лабораторна робота №2: CSS-оформлення (каркас)</h2>
 
-      <h4>Функціональні вимоги</h4>
-      <ul>
-        <li>Відображення інформації про ментора, його досвід та стек технологій.</li>
-        <li>Секція з описом послуг та короткою програмою навчання.</li>
-        <li>Блок із відгуками студентів.</li>
-        <li>Контактна форма для відправки заявки на менторство.</li>
-        <li>Посилання на соцмережі (LinkedIn, Telegram, GitHub тощо).</li>
-      </ul>
+      <section id="lab2-intro" class="tab-section">
+        <h3>0. Вступ (каркас)</h3>
+        <p>
+          Тут буде короткий опис того, які CSS-прийоми застосовано у роботі №2.
+          (Контент додамо наступним кроком.)
+        </p>
+      </section>
 
-      <h4>Нефункціональні вимоги</h4>
-      <ul>
-        <li>Адаптивний інтерфейс для мобільних пристроїв.</li>
-        <li>Єдина кольорова палітра згідно індивідуального завдання.</li>
-        <li>Кросбраузерна сумісність (Chrome, Firefox, Edge).</li>
-        <li>Швидке завантаження сторінки (мінімум зовнішніх ресурсів).</li>
-      </ul>
+      <section id="lab2-topic" class="tab-section">
+        <h3>1. Тема, мета, місце розташування</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-css" class="tab-section">
+        <h3>2. Опис CSS-оформлення</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-layout" class="tab-section">
+        <h3>3. Сітка та компонування</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-typography" class="tab-section">
+        <h3>4. Типографіка і палітра</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-responsive" class="tab-section">
+        <h3>5. Адаптивність</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-code" class="tab-section">
+        <h3>6. Фрагменти CSS-коду</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-screens" class="tab-section">
+        <h3>7. Скріншоти</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
+
+      <section id="lab2-conclusion" class="tab-section">
+        <h3>8. Висновки</h3>
+        <p>(Каркас. Заповнимо пізніше.)</p>
+      </section>
     </section>
 
-    <!-- 3. Структура -->
-    <section id="structure" class="tab-section">
-      <h3>3. Структура головної сторінки сайту-візитки «QA Mentor»</h3>
-      <p>Головна сторінка містить такі семантичні блоки:</p>
-      <ol>
-        <li><code>&lt;header&gt;</code> — логотип/імʼя ментора, навігація по секціях.</li>
-        <li><code>&lt;section&gt;</code> hero-блок з фото ментора та коротким описом.</li>
-        <li><code>&lt;section&gt;</code> «Про мене» з досвідом та скілами.</li>
-        <li><code>&lt;section&gt;</code> таблиця програм навчання та пакетів менторства.</li>
-        <li><code>&lt;section&gt;</code> відгуки студентів (списки/картки).</li>
-        <li><code>&lt;section&gt;</code> форма зворотнього звʼязку.</li>
-        <li><code>&lt;footer&gt;</code> контакти та копірайт.</li>
-      </ol>
-      <p>
-        Для оформлення використовується файл стилів <code>style.css</code>,
-        де налаштовано кольорову палітру, сітку, відступи та адаптивність.
-      </p>
+  </main>
+</div>
+
+ <!-- ===================== -->
+    <!-- LAB 3 CONTENT -->
+    <!-- ===================== -->
+    <section data-lab="lab3" hidden>
+      <h2 id="lab3">Лабораторна робота №3:</h2>
+
+      <section id="lab3-intro" class="tab-section">
+         <h3>Опис</h3>
+        <p>
+          Тут буде короткий опис роботи №3.
+        </p>
+      </section>
     </section>
 
-    <!-- 4. Таблиця -->
-    <section id="table-code" class="tab-section">
-      <h3>4. HTML-код таблиці та скріншот</h3>
-
-      <h4>4.1. HTML-код таблиці пакетів менторства</h4>
-<pre><code>&lt;table class="plans-table"&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Пакет&lt;/th&gt;
-      &lt;th&gt;Тривалість&lt;/th&gt;
-      &lt;th&gt;Формат&lt;/th&gt;
-      &lt;th&gt;Мета&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Start QA&lt;/td&gt;
-      &lt;td&gt;4 тижні&lt;/td&gt;
-      &lt;td&gt;1×1 онлайн&lt;/td&gt;
-      &lt;td&gt;Основи тестування ПЗ&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Job Ready&lt;/td&gt;
-      &lt;td&gt;6 тижнів&lt;/td&gt;
-      &lt;td&gt;1×1 + домашні завдання&lt;/td&gt;
-      &lt;td&gt;Підготовка до співбесіди&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</code></pre>
-
-      <h4>4.2. Скріншот таблиці</h4>
-      <div class="screenshot">
-        <p>Рисунок 1 – Таблиця пакетів менторства</p>
-        <img src="img/table-screenshot.png" alt="Скріншот таблиці пакетів QA Mentor">
-      </div>
-
-      <h4>4.3. Теорія щодо тегів таблиці</h4>
-      <p>
-        Таблиця будується за допомогою тегів <code>&lt;table&gt;</code>,
-        <code>&lt;tr&gt;</code> (рядок), <code>&lt;th&gt;</code> (заголовок),
-        <code>&lt;td&gt;</code> (комірка). Атрибути <code>rowspan</code>
-        та <code>colspan</code> дозволяють обʼєднувати комірки.
-      </p>
-    </section>
-
-    <!-- 5. Зображення -->
-    <section id="image-code" class="tab-section">
-      <h3>5. HTML-код зображення та скріншот</h3>
-
-      <h4>5.1. HTML-код hero-зображення ментора</h4>
-<pre><code>&lt;img class="hero-avatar"
-     src="img/qa-mentor.jpg"
-     alt="QA Mentor"
-     width="220"
-     height="220"&gt;
-</code></pre>
-
-      <h4>5.2. Скріншот розміщення зображення</h4>
-      <div class="screenshot">
-        <p>Рисунок 2 – Фото ментора в hero-блоці</p>
-        <img src="img/image-screenshot.png" alt="Скріншот hero-зображення">
-      </div>
-
-      <h4>5.3. Теорія щодо тегу &lt;img&gt;</h4>
-      <p>
-        Тег <code>&lt;img&gt;</code> має обовʼязкові атрибути
-        <code>src</code> (шлях до файла) та <code>alt</code> (текстовий опис).
-        Атрибути <code>width</code> та <code>height</code> задають розмір,
-        а через CSS можна зробити зображення круглим
-        (наприклад, <code>border-radius: 50%;</code>).
-      </p>
-    </section>
-
-    <!-- 6. Списки -->
-    <section id="lists-code" class="tab-section">
-      <h3>6. HTML-код списків</h3>
-
-      <h4>6.1. Приклад списків на сайті</h4>
-<pre><code>&lt;h4&gt;Кому буде корисне менторство&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Студентам, які починають шлях в QA&lt;/li&gt;
-  &lt;li&gt;Junior-тестувальникам&lt;/li&gt;
-  &lt;li&gt;Фахівцям з інших сфер, що переходять в ІТ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Етапи роботи&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;Онлайн-знайомство&lt;/li&gt;
-  &lt;li&gt;Планування навчального маршруту&lt;/li&gt;
-  &lt;li&gt;Практичні заняття і фідбек&lt;/li&gt;
-  &lt;li&gt;Підготовка до співбесіди&lt;/li&gt;
-&lt;/ol&gt;
-</code></pre>
-
-      <div class="screenshot">
-        <p>Рисунок 3 – Маркований та нумерований списки</p>
-        <img src="img/lists-screenshot.png" alt="Скріншот списків">
-      </div>
-
-      <h4>6.2. Теорія щодо тегів списків</h4>
-      <p>
-        Маркований список створюється тегом <code>&lt;ul&gt;</code>,
-        нумерований — <code>&lt;ol&gt;</code>. Кожен елемент — це
-        <code>&lt;li&gt;</code>. Атрибут <code>type</code> задає стиль маркерів
-        або нумерації, <code>start</code> — початковий номер.
-      </p>
-    </section>
-
-    <!-- 7. Форма -->
-    <section id="form-code" class="tab-section">
-      <h3>7. HTML-код форми</h3>
-
-      <h4>7.1. HTML-код форми запису на консультацію</h4>
-<pre><code>&lt;form class="contact-form" action="#" method="post"&gt;
-  &lt;label for="name"&gt;Ім&#39;я:&lt;/label&gt;
-  &lt;input type="text" id="name" name="name" required&gt;
-
-  &lt;label for="email"&gt;E-mail:&lt;/label&gt;
-  &lt;input type="email" id="email" name="email" required&gt;
-
-  &lt;label for="goal"&gt;Мета менторства:&lt;/label&gt;
-  &lt;textarea id="goal" name="goal" rows="3"&gt;&lt;/textarea&gt;
-
-  &lt;button type="submit"&gt;Надіслати заявку&lt;/button&gt;
-&lt;/form&gt;
-</code></pre>
-
-      <h4>7.2. Демонстраційна форма у звітному документі</h4>
-      <form class="report-form">
-        <label for="fb-name">Ваше імʼя:</label>
-        <input id="fb-name" type="text" placeholder="Введіть імʼя">
-
-        <label for="fb-comment">Коментар до роботи:</label>
-        <textarea id="fb-comment" rows="3"
-                  placeholder="Короткий відгук про виконання лабораторної"></textarea>
-
-        <button type="button">Надіслати (демо)</button>
-      </form>
-
-      <h4>7.3. Теорія щодо тегу &lt;form&gt;</h4>
-      <p>
-        Форма створюється тегом <code>&lt;form&gt;</code> з атрибутами
-        <code>action</code> (адреса обробника) та <code>method</code>
-        (<code>get</code> або <code>post</code>). Усередині розміщуються
-        поля <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>,
-        <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code> тощо.
-      </p>
-    </section>
-
-    <!-- 8. Опис головної сторінки -->
-    <section id="main-page" class="tab-section">
-      <h3>8. Головна сторінка сайту-візитки «QA Mentor»</h3>
-      <p>
-        При відкритті сайту користувач бачить hero-блок із круглим фото
-        ментора, його імʼям, роллю (QA Mentor) та коротким описом. Нижче
-        розташовані блоки «Про мене», «Програми менторства», «Відгуки» та
-        «Запис на консультацію».
-      </p>
-      <p>
-        Кольорова схема сайту: світлий фон для основного контенту, акцентні
-        червоні елементи для кнопок запису, темно-коричневі заголовки та
-        зеленуваті акценти в підкресленнях і рамках.
-      </p>
-    </section>
-
-    <!-- 9. Код головної сторінки -->
-    <section id="main-page-code" class="tab-section">
-      <h3>9. HTML-код головної сторінки сайту-візитки</h3>
-      <p>Скорочений варіант головної сторінки «QA Mentor»:</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="uk"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;QA Mentor&lt;/title&gt;
-  &lt;link rel="stylesheet" href="css/style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;header class="site-header"&gt;
-    &lt;div class="logo"&gt;QA Mentor&lt;/div&gt;
-    &lt;nav&gt;
-      &lt;a href="#about"&gt;Про мене&lt;/a&gt;
-      &lt;a href="#plans"&gt;Програми&lt;/a&gt;
-      &lt;a href="#reviews"&gt;Відгуки&lt;/a&gt;
-      &lt;a href="#contact"&gt;Контакти&lt;/a&gt;
-    &lt;/nav&gt;
-  &lt;/header&gt;
-
-  &lt;main&gt;
-    &lt;section class="hero"&gt;
-      &lt;img class="hero-avatar" src="img/qa-mentor.jpg" alt="QA Mentor"&gt;
-      &lt;div class="hero-text"&gt;
-        &lt;h1&gt;Привіт! Я твій QA Mentor&lt;/h1&gt;
-        &lt;p&gt;Допоможу підготуватися до першої роботи в тестуванні ПЗ.&lt;/p&gt;
-        &lt;a class="btn-primary" href="#contact"&gt;Записатися на консультацію&lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-    ...
-  &lt;/main&gt;
-
-  &lt;footer&gt;© 2025 QA Mentor&lt;/footer&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-    </section>
-
-    <!-- 10. Висновки -->
-    <section id="conclusion" class="tab-section">
-      <h3>10. Висновки</h3>
-      <p>
-        У ході лабораторної роботи №1 було спроєктовано сайт-візитку
-        «QA Mentor», визначено предметне середовище та бізнес-логіку,
-        сформовано функціональні й нефункціональні вимоги.
-      </p>
-      <p>
-        Реалізовано головну сторінку з використанням семантичної розмітки,
-        таблиць, списків, зображень та форми звʼязку. Отриманий шаблон
-        звітного HTML-документа буде розширюватися в наступних лабораторних
-        роботах.
-      </p>
-    </section>
   </main>
 </div>
 
 <footer class="page-footer">
-  Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань», ЛР №1
+  Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань»
 </footer>
 
 <script src="script.js"></script>
