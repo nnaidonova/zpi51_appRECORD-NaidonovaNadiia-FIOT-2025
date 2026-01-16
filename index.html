@@ -1,237 +1,882 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Звіт з Веб програмування</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
 
-<body>
-<header>
-  <div class="header-top">
-    <div class="title-block">
-      <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
-      <div class="subtitle">з дисципліни «Проєктування WEB-застосувань»</div>
-      <div class="student-info">
-        Виконавець: студент групи ЗПІ-51 Найдьонова Надія Андріївна
-      </div>
-    </div>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Звіт з Веб програмування</title>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
 
-    <div class="photo-box">
-      <img src="img/photo_nn.jpeg" alt="Фото студента">
-    </div>
+	<body>
+		<header>
+			<div class="header-top">
+				<div class="title-block">
+					<h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
+					<div class="subtitle">з дисципліни «Проєктування WEB-застосувань»</div>
+					<div class="student-info">
+						Виконавець: студент групи ЗПІ-51 Найдьонова Надія Андріївна
+					</div>
+				</div>
+
+				<div class="photo-box">
+					<img src="img/photo_nn.jpeg" alt="Фото студента">
+				</div>
+			</div>
+
+			<!-- вкладки з лабораторними -->
+			<nav class="lab-tabs" aria-label="Перемикач лабораторних робіт">
+				<a class="lab-tab active" href="#lab1" data-lab-tab="lab1">Лабораторна робота №1</a>
+				<a class="lab-tab" href="#lab2" data-lab-tab="lab2">Лабораторна робота №2</a>
+				<a class="lab-tab" href="#lab3" data-lab-tab="lab3">Лабораторна робота №3</a>
+        <a class="lab-tab" href="#lab4" data-lab-tab="lab4">Лабораторна робота №4</a>
+        <a class="lab-tab" href="#lab5" data-lab-tab="lab5">Лабораторна робота №5</a>
+        <a class="lab-tab" href="#lab6" data-lab-tab="lab6">Лабораторна робота №6</a>
+			</nav>
+		</header>
+
+		<div
+			class="layout">
+			<aside
+				aria-label="Навігація по розділах">
+
+        <div data-lab-menu="lab1">
+          <a class="oval-button primary" href="#lab1-topic">Тема, мета, місце розташування</a>
+          <a class="oval-button" href="#lab1-business">Опис предметного середовища<br>та бізнес-логіки</a>
+          <a class="oval-button" href="#lab1-structure">Структура документа</a>
+          <div class="submenu" aria-label="Підрозділи: структура документа">
+            <a class="oval-button sub" href="#lab1-table">HTML-код таблиці</a>
+            <a class="oval-button sub" href="#lab1-image">HTML-код зображення</a>
+            <a class="oval-button sub" href="#lab1-lists">HTML-код списків</a>
+            <a class="oval-button sub" href="#lab1-form">HTML-код форми</a>
+          </div>
+
+          <a class="oval-button" href="#lab1-main">Головна сторінка WEB-застосунку</a>
+          <a class="oval-button" href="#lab1-main-code">Код головної сторінки</a>
+          <a class="oval-button" href="#lab1-summary">Висновок</a>
+        </div>
+
+				<div data-lab-menu="lab2" hidden>
+          <a class="oval-button primary" href="#lab2-topic">Тема, мета, місце розташування</a>
+          <a class="oval-button" href="#lab2-connect">Способи підключення стилів</a>
+
+          <a class="oval-button" href="#lab2-selectors">СЕЛЕКТОРИ</a>
+          <div class="submenu" aria-label="Підрозділи: структура документа">
+            <a class="oval-button" href="#lab2-sel-tags">Селектори тегу</a>
+            <a class="oval-button" href="#lab2-sel-classes">Селектори класу</a>
+            <a class="oval-button" href="#lab2-sel-ids">Селектори ідентифікаторів</a>
+            <a class="oval-button" href="#lab2-sel-other">Інші селектори</a>
+            </div>
+          <a class="oval-button" href="#lab2-css-blocks">CSS: Шрифти • Текст • Таблиці • Фон • Контур • Списки • Просунутий</a>
+
+          <a class="oval-button" href="#lab2-output">Скріншоти</a>
+          <a class="oval-button" href="#lab2-summary">Висновки</a>
+        </div>
+
+
+				<div data-lab-menu="lab3" hidden>
+					<a class="oval-button primary" href="#lab3-intro">Лабораторна робота №3</a>
+				</div>
+
+			</aside>
+
+			<main aria-label="Контент звіту">
+				<section data-lab="lab1">
+  <h2 id="lab1">Лабораторна робота №1: ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА</h2>
+
+  <section id="lab1-topic" class="tab-section">
+    <h3>1. Тема, мета, місце розташування</h3>
+
+    <p><strong>Тема:</strong> розробка семантичного HTML-документа веб-застосунку та використання тегів і атрибутів HTML5.</p>
+
+    <p><strong>Мета:</strong> створити односторінковий сайт (landing page) вейк-школи <strong>WakeFlow</strong> з основними інформаційними розділами
+      (про школу, послуги, команда, галерея, контакти) і формою запису на заняття. Форма збирає дані користувача та передає заявку до Google Sheets через Google Apps Script.</p>
+
+    <p><strong>Місце розташування роботи:</strong></p>
+   <ul class="links-list">
+  <li>Репозиторій з кодом:
+    <a href="https://github.com/nnaidonova/zpi51_appWEB-NaidonovaNadiia-FIOT-2025" target="_blank" rel="noopener">
+      посилання на GitHub
+    </a>
+  </li>
+
+  <li>Демо-сторінка (GitHub Pages):
+    <a href="https://nnaidonova.github.io/zpi51_appWEB-NaidonovaNadiia-FIOT-2025/index.html" target="_blank" rel="noopener">
+      посилання на live
+    </a>
+  </li>
+
+  <li>Сторінка «Бізнес-логіка» (business.html):
+    <a href="https://nnaidonova.github.io/zpi51_appWEB-NaidonovaNadiia-FIOT-2025/business.html" target="_blank" rel="noopener">
+      посилання
+    </a>
+  </li>
+
+  <li>Figma дизайн:
+    <a href="https://www.figma.com/site/zIY8N6wKuKztYI8QrKJ2KC/web_app_NN?node-id=4-143&t=DYFDxUY96xJnCnkX-0" target="_blank" rel="noopener">
+      відкрити макет
+    </a>
+  </li>
+</ul>
+
+  </section>
+
+  <section id="lab1-business" class="tab-section">
+    <h3>2. Предметна область та бізнес-логіка</h3>
+
+    <h4>2.1. Предметна область</h4>
+    <p>
+      Веб-застосунок WakeFlow представляє послуги вейк-школи: навчання вейкбордингу, оренду/підбір спорядження,
+      презентацію команди інструкторів, фотогалерею та контактні дані. Користувач може залишити заявку на тренування через форму запису.
+    </p>
+
+    <h4>2.2. Основні сутності (дані)</h4>
+    <ul>
+      <li><strong>Послуга</strong>: назва, тривалість, формат (індивідуально/група), ціна.</li>
+      <li><strong>Інструктор</strong>: ім’я, фото, спеціалізація/роль, опис.</li>
+      <li><strong>Галерея</strong>: зображення, опис/підпис (alt/figcaption).</li>
+      <li><strong>Заявка</strong>: ПІБ, телефон, email, рівень підготовки, формат, дата, коментар, згода на обробку даних.</li>
+    </ul>
+
+    <h4>2.3. Ключовий бізнес-процес: «Запис на заняття»</h4>
+    <ol>
+      <li>Користувач заповнює форму (контактні дані + деталі тренування) і підтверджує згоду.</li>
+      <li>Після натискання кнопки «Надіслати заявку» дані відправляються методом <strong>POST</strong> до Google Apps Script.</li>
+      <li>Google Apps Script зберігає запис у Google Sheets (таблиця заявок).</li>
+      <li>Користувач отримує повідомлення про успішну відправку або помилку (мережа/доступ).</li>
+    </ol>
+  </section>
+
+  <section id="lab1-structure" class="tab-section">
+    <h3>3. Структура HTML-документа (семантична верстка)</h3>
+
+    <p>
+      Головна сторінка WakeFlow реалізована як семантичний HTML5-документ із використанням структурних тегів:
+      <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>.
+      Для внутрішньої навігації застосовано якірні посилання на секції з ідентифікаторами.
+    </p>
+
+    <p>Приклад загального «каркасу» сторінки:</p>
+    <pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- логотип + навігація --&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id="about"&gt;...&lt;/section&gt;
+    &lt;section id="services"&gt;...&lt;/section&gt;
+    &lt;section id="team"&gt;...&lt;/section&gt;
+    &lt;section id="gallery"&gt;...&lt;/section&gt;
+    &lt;section id="contact"&gt;...&lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+
+    <p>
+      Навігація виконується через <code>href="#..."</code> до секцій:
+      <code>#about</code>, <code>#services</code>, <code>#team</code>, <code>#gallery</code>, <code>#contact</code>.
+    </p>
+  </section>
+
+  <section id="lab1-links" class="tab-section">
+    <h3>4. Приклад гіперпосилань і навігації</h3>
+
+    <p>Фрагмент шапки сайту з логотипом і меню навігації (атрибути: <code>href</code>, <code>aria-label</code>, <code>id</code>, <code>alt</code>, <code>width</code>):</p>
+    <pre><code>&lt;header&gt;
+  &lt;a href="index.html"&gt;
+    &lt;img id="WakeFlow_logo" src="img/logo.png" alt="WakeFlow_logo" width="100" /&gt;
+  &lt;/a&gt;
+
+  &lt;nav aria-label="Головна навігація"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#about"&gt;Про школу&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#services"&gt;Послуги&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#team"&gt;Команда&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#gallery"&gt;Галерея&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contact"&gt;Контакти&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="business.html"&gt;Бізнес-логіка&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+  </section>
+
+  <section id="lab1-table" class="tab-section">
+    <h3>5. HTML-код таблиці</h3>
+
+    <p>Для відображення прайсу застосовано таблицю з підписом (<code>&lt;caption&gt;</code>), заголовком (<code>&lt;thead&gt;</code>) і тілом (<code>&lt;tbody&gt;</code>), а також атрибутами доступності (<code>aria-label</code>, <code>scope</code>).</p>
+
+    <pre><code>&lt;section id="services" aria-labelledby="services-title"&gt;
+  &lt;h2 id="services-title"&gt;Послуги та ціни&lt;/h2&gt;
+
+  &lt;div class="table-wrap" role="region" aria-label="Прайс-лист (прокручуваний блок)"&gt;
+    &lt;table aria-label="Таблиця послуг вейк-школи"&gt;
+      &lt;caption&gt;Прайс-лист WakeFlow (демо)&lt;/caption&gt;
+
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;Послуга&lt;/th&gt;
+          &lt;th scope="col"&gt;Тривалість&lt;/th&gt;
+          &lt;th scope="col"&gt;Для кого&lt;/th&gt;
+          &lt;th scope="col"&gt;Ціна&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+
+      &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+  </section>
+
+  <section id="lab1-image" class="tab-section">
+    <h3>6. HTML-код зображення</h3>
+
+    <p>Зображення оформлено в семантичній парі <code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code>. Використано атрибути: <code>src</code>, <code>alt</code>, <code>width</code>.</p>
+
+    <pre><code>&lt;figure&gt;
+  &lt;img src="img/hero.png"
+       alt="Катання на вейкборді за катером (тестове зображення)"
+       width="1200" /&gt;
+  &lt;figcaption&gt;WakeFlow — школа водних видів спорту.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+  </section>
+
+  <section id="lab1-lists" class="tab-section">
+    <h3>7. HTML-код списків</h3>
+
+    <p>Для структурованої подачі інформації застосовано маркований (<code>&lt;ul&gt;</code>) і нумерований (<code>&lt;ol&gt;</code>) списки.</p>
+
+    <pre><code>&lt;h3 id="advantages-title"&gt;Чому з нами зручно&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Інструктори поруч на кожному етапі навчання&lt;/li&gt;
+  &lt;li&gt;Пояснюємо техніку просто і по ділу&lt;/li&gt;
+  &lt;li&gt;Тестове спорядження для перших занять&lt;/li&gt;
+  &lt;li&gt;Фото/відео фрагменти прогресу (за можливості)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Як проходить перше заняття&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Короткий інструктаж з безпеки&lt;/li&gt;
+  &lt;li&gt;Підбір спорядження під зріст і рівень&lt;/li&gt;
+  &lt;li&gt;Перші старти з води та стабілізація стійки&lt;/li&gt;
+  &lt;li&gt;Розбір помилок та план наступного кроку&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+  </section>
+
+  <section id="lab1-form" class="tab-section">
+    <h3>8. HTML-код форми</h3>
+
+    <p>
+      Форма реалізована через <code>&lt;form&gt;</code> з групуванням полів у <code>&lt;fieldset&gt;</code> і підписами <code>&lt;label&gt;</code>.
+      Використані атрибути: <code>id</code>, <code>name</code>, <code>type</code>, <code>required</code>, <code>method</code>, <code>aria-label</code>.
+    </p>
+
+    <pre><code>&lt;form id="leadForm" action="#" method="post" aria-label="Форма запису на заняття"&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Контактні дані&lt;/legend&gt;
+
+    &lt;label for="fullName"&gt;Ім’я та прізвище:&lt;/label&gt;
+    &lt;input id="fullName" name="fullName" type="text" required /&gt;
+
+    &lt;label for="phone"&gt;Телефон:&lt;/label&gt;
+    &lt;input id="phone" name="phone" type="tel" required /&gt;
+
+    &lt;label for="email"&gt;Email (необов’язково):&lt;/label&gt;
+    &lt;input id="email" name="email" type="email" /&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Деталі заняття&lt;/legend&gt;
+
+    &lt;select id="level" name="level" required&gt;...&lt;/select&gt;
+
+    &lt;input type="radio" name="format" value="Індивідуально" checked /&gt;
+    &lt;input type="radio" name="format" value="Мінігрупа" /&gt;
+
+    &lt;input id="date" name="date" type="date" /&gt;
+
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+
+    &lt;input type="checkbox" name="agree" required /&gt;
+  &lt;/fieldset&gt;
+
+  &lt;input type="hidden" name="source" value="WakeFlow site" /&gt;
+  &lt;input type="hidden" name="pageUrl" id="pageUrl" value="" /&gt;
+
+  &lt;button type="submit"&gt;Надіслати заявку&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+  </section>
+
+ <section id="lab1-main" class="tab-section">
+  <h3>9. Опис головної сторінки WEB-застосунку</h3>
+
+  <p>
+    Головна сторінка WakeFlow — односторінковий лендінг з навігацією по секціях.
+    На сторінці реалізовано hero-блок з CTA, блок «Про школу», таблицю прайсу,
+    блок команди інструкторів, фотогалерею, контакти та форму запису на заняття.
+  </p>
+
+  <ul class="links-list">
+    <li>Головна сторінка WakeFlow:
+      <a href="#" target="_blank" rel="noopener">відкрити</a>
+    </li>
+  </ul>
+
+  <h4>Скріншот головної сторінки</h4>
+  <figure class="screen">
+    <img
+      src="img/lab1-main.png"
+      alt="Скріншот головної сторінки WakeFlow"
+      loading="lazy"
+      width="1200"
+      height="750"
+    />
+    <figcaption>Рисунок 1 — Головна сторінка веб-застосунку WakeFlow</figcaption>
+  </figure>
+</section>
+
+<section id="lab1-main-code" class="tab-section">
+  <h3>Код головної сторінки</h3>
+
+  <p>
+    У цьому розділі наведено ключові фрагменти HTML-коду головної сторінки WakeFlow:
+    підключення ресурсів, шапка з навігацією, hero-блок, таблиця послуг, галерея та форма запису на заняття.
+  </p>
+
+  <h4>1) Підключення метаданих та CSS</h4>
+  <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;WakeFlow — вейк-школа&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css" /&gt;
+&lt;/head&gt;</code></pre>
+
+  <h4>2) Header + навігація</h4>
+  <pre><code>&lt;header&gt;
+  &lt;a href="index.html"&gt;
+    &lt;img id="WakeFlow_logo" src="img/logo.png" alt="WakeFlow_logo" width="100" /&gt;
+  &lt;/a&gt;
+
+  &lt;nav aria-label="Головна навігація"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#about"&gt;Про школу&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#services"&gt;Послуги&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#team"&gt;Команда&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#gallery"&gt;Галерея&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contact"&gt;Контакти&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="business.html"&gt;Бізнес-логіка&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+  <h4>3) Hero-блок із зображенням та CTA</h4>
+  <pre><code>&lt;section id="hero" aria-labelledby="hero-title"&gt;
+  &lt;figure&gt;
+    &lt;img src="img/hero.png"
+         alt="Катання на вейкборді за катером (тестове зображення)"
+         width="1200" /&gt;
+    &lt;figcaption&gt;WakeFlow — школа водних видів спорту.&lt;/figcaption&gt;
+  &lt;/figure&gt;
+
+  &lt;div&gt;
+    &lt;h1 id="hero-title"&gt;WakeFlow&lt;/h1&gt;
+    &lt;p&gt;Навчання вейкбордингу для новачків і прогресуючих. Безпечно, системно, з кайфом.&lt;/p&gt;
+
+    &lt;div class="btn-row"&gt;
+      &lt;a class="btn primary" href="#contact"&gt;Записатися&lt;/a&gt;
+      &lt;a class="btn" href="#services"&gt;Переглянути послуги&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+  <h4>4) Таблиця «Послуги та ціни»</h4>
+  <pre><code>&lt;section id="services" aria-labelledby="services-title"&gt;
+  &lt;h2 id="services-title"&gt;Послуги та ціни&lt;/h2&gt;
+
+  &lt;div class="table-wrap" role="region" aria-label="Прайс-лист (прокручуваний блок)"&gt;
+    &lt;table aria-label="Таблиця послуг вейк-школи"&gt;
+      &lt;caption&gt;Прайс-лист WakeFlow (демо)&lt;/caption&gt;
+
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;Послуга&lt;/th&gt;
+          &lt;th scope="col"&gt;Тривалість&lt;/th&gt;
+          &lt;th scope="col"&gt;Для кого&lt;/th&gt;
+          &lt;th scope="col"&gt;Ціна&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Пробне заняття&lt;/td&gt;
+          &lt;td&gt;30 хв&lt;/td&gt;
+          &lt;td&gt;Новачки&lt;/td&gt;
+          &lt;td&gt;—&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Індивідуальне тренування&lt;/td&gt;
+          &lt;td&gt;60 хв&lt;/td&gt;
+          &lt;td&gt;Будь-який рівень&lt;/td&gt;
+          &lt;td&gt;—&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+  <h4>5) Галерея (семантичні figure + img)</h4>
+  <pre><code>&lt;section id="gallery" aria-labelledby="gallery-title"&gt;
+  &lt;h2 id="gallery-title"&gt;Галерея&lt;/h2&gt;
+
+  &lt;div class="gallery-grid"&gt;
+    &lt;figure&gt;
+      &lt;img src="img/gallery-1.jpg" alt="Тренування на воді — кадр 1" loading="lazy" /&gt;
+      &lt;figcaption&gt;Перші старти&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;figure&gt;
+      &lt;img src="img/gallery-2.jpg" alt="Тренування на воді — кадр 2" loading="lazy" /&gt;
+      &lt;figcaption&gt;Стабілізація стійки&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+  <h4>6) Форма запису на заняття</h4>
+  <pre><code>&lt;section id="contact" aria-labelledby="contact-title"&gt;
+  &lt;h2 id="contact-title"&gt;Запис на заняття&lt;/h2&gt;
+
+  &lt;form id="leadForm" action="#" method="post" aria-label="Форма запису на заняття"&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Контактні дані&lt;/legend&gt;
+
+      &lt;label for="fullName"&gt;Ім’я та прізвище:&lt;/label&gt;
+      &lt;input id="fullName" name="fullName" type="text" required /&gt;
+
+      &lt;label for="phone"&gt;Телефон:&lt;/label&gt;
+      &lt;input id="phone" name="phone" type="tel" required /&gt;
+
+      &lt;label for="email"&gt;Email (необов’язково):&lt;/label&gt;
+      &lt;input id="email" name="email" type="email" /&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Деталі заняття&lt;/legend&gt;
+
+      &lt;label for="level"&gt;Рівень:&lt;/label&gt;
+      &lt;select id="level" name="level" required&gt;
+        &lt;option value=""&gt;Оберіть рівень&lt;/option&gt;
+        &lt;option value="Новачок"&gt;Новачок&lt;/option&gt;
+        &lt;option value="Середній"&gt;Середній&lt;/option&gt;
+        &lt;option value="Просунутий"&gt;Просунутий&lt;/option&gt;
+      &lt;/select&gt;
+
+      &lt;p&gt;Формат:&lt;/p&gt;
+      &lt;label&gt;&lt;input type="radio" name="format" value="Індивідуально" checked /&gt; Індивідуально&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="format" value="Мінігрупа" /&gt; Мінігрупа&lt;/label&gt;
+
+      &lt;label for="date"&gt;Бажана дата:&lt;/label&gt;
+      &lt;input id="date" name="date" type="date" /&gt;
+
+      &lt;label for="message"&gt;Коментар:&lt;/label&gt;
+      &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+
+      &lt;label&gt;
+        &lt;input type="checkbox" name="agree" required /&gt;
+        Погоджуюсь на обробку персональних даних
+      &lt;/label&gt;
+    &lt;/fieldset&gt;
+
+    &lt;input type="hidden" name="source" value="WakeFlow site" /&gt;
+    &lt;input type="hidden" name="pageUrl" id="pageUrl" value="" /&gt;
+
+    &lt;button type="submit"&gt;Надіслати заявку&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;</code></pre>
+
+  <p class="note">
+    Примітка: наведені фрагменти демонструють використання HTML5-тегів і атрибутів (структурні блоки, доступність через ARIA,
+    валідацію форм через <code>required</code>, роботу з медіа через <code>img</code>/<code>figure</code>/<code>figcaption</code>).
+  </p>
+</section>
+
+
+  <section id="lab1-summary" class="tab-section">
+    <h3>10. Висновок</h3>
+    <p>
+      У ході лабораторної роботи №1 було створено семантичний HTML-документ веб-застосунку WakeFlow та застосовано
+      основні HTML5-теги й атрибути для структурування контенту, навігації, таблиць, списків, зображень і форми введення даних.
+      Реалізовано логіку введення даних користувача через форму запису, що є основою подальшого підключення бізнес-логіки та CSS-оформлення.
+    </p>
+  </section>
+</section>
+
+
+<section data-lab="lab2" hidden>
+  <h2 id="lab2">Лабораторна робота №2: CSS-оформлення</h2>
+
+<section id="lab2-topic" class="tab-section">
+  <h3>1. Тема, мета, місце розташування</h3>
+
+  <p><strong>Тема:</strong> стильове оформлення елементів HTML-документа засобами каскадних таблиць стилів (CSS).
+    Використання селекторів тегу, класу, ідентифікатора, комбінаторів, псевдокласів.</p>
+
+  <p><strong>Мета:</strong> набути практичних навичок підключення CSS до HTML-документа та застосування
+    основних і розширених засобів CSS для оформлення шрифтів, тексту, таблиць, списків, фону/контурів,
+    форм і адаптивного компонування сторінки.</p>
+
+  <p><strong>Місце розташування роботи:</strong></p>
+  <ul class="links-list">
+    <li>Репозиторій з кодом:
+      <a href="https://github.com/nnaidonova/zpi51_appWEB-NaidonovaNadiia-FIOT-2025" target="_blank" rel="noopener">
+        GitHub
+      </a>
+    </li>
+    <li>Демо-сторінка (GitHub Pages):
+      <a href="https://nnaidonova.github.io/zpi51_appWEB-NaidonovaNadiia-FIOT-2025/index.html" target="_blank" rel="noopener">
+        live
+      </a>
+    </li>
+    <li>Сторінка «Бізнес-логіка» (business.html):
+      <a href="https://nnaidonova.github.io/zpi51_appWEB-NaidonovaNadiia-FIOT-2025/business.html" target="_blank" rel="noopener">
+        відкрити
+      </a>
+    </li>
+    <li>Figma дизайн:
+      <a href="https://www.figma.com/site/zIY8N6wKuKztYI8QrKJ2KC/web_app_NN?node-id=4-143&t=DYFDxUY96xJnCnkX-0" target="_blank" rel="noopener">
+        відкрити макет
+      </a>
+    </li>
+  </ul>
+
+  <p><strong>Файли проєкту:</strong></p>
+  <ul>
+    <li><code>index.html</code> — головна сторінка застосунку WakeFlow</li>
+    <li><code>style.css</code> — файл каскадних таблиць стилів</li>
+  </ul>
+</section>
+
+<section id="lab2-connect" class="tab-section">
+  <h3>2. Способи підключення стилів</h3>
+
+  <p>У проєкті WakeFlow використано підключення стилів через <strong>зовнішній CSS-файл</strong> (рекомендований спосіб),
+    який підключається у секції <code>&lt;head&gt;</code> HTML-документа.</p>
+
+  <h4>2.1. Зовнішній CSS-файл (використано у проєкті)</h4>
+  <pre><code>&lt;link rel="stylesheet" href="style.css" /&gt;</code></pre>
+
+  <h4>2.2. Внутрішні стилі (приклад)</h4>
+  <pre><code>&lt;style&gt;
+  body { font-family: system-ui, Arial, sans-serif; }
+&lt;/style&gt;</code></pre>
+
+  <h4>2.3. Інлайн-стилі (приклад)</h4>
+  <pre><code>&lt;p style="color:#fff; margin:0;"&gt;Текст&lt;/p&gt;</code></pre>
+
+  <p>Основний підхід у роботі — централізоване керування оформленням через <code>style.css</code>,
+    що спрощує підтримку та масштабування інтерфейсу.</p>
+</section>
+
+<section id="lab2-selectors" class="tab-section">
+  <h3>3. СЕЛЕКТОРИ</h3>
+  <p>
+    Для стилізації елементів сторінки застосовано селектори різних типів: тегів, класів, ідентифікаторів,
+    а також комбіновані селектори, селектори атрибутів та псевдокласи.
+    Нижче наведено приклади з файлу <code>style.css</code>.
+  </p>
+</section>
+
+<section id="lab2-sel-tags" class="tab-section">
+  <h3>3.1. Селектори тегу</h3>
+  <p>Селектори тегів використовуються для базового оформлення елементів документа.</p>
+
+  <pre><code>body{
+  margin:0;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+th, td{
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}</code></pre>
+</section>
+
+<section id="lab2-sel-classes" class="tab-section">
+  <h3>3.2. Селектори класу</h3>
+  <p>Класи застосовуються для багаторазових компонентів інтерфейсу (кнопки, сітки, статуси).</p>
+
+  <pre><code>.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.status.success{
+  border-color: rgba(182,255,59,.35);
+  background: rgba(182,255,59,.10);
+}</code></pre>
+
+  <p><strong>HTML-приклад використання класу:</strong></p>
+  <pre><code>&lt;a class="btn primary" href="#services"&gt;Переглянути послуги&lt;/a&gt;</code></pre>
+</section>
+
+<section id="lab2-sel-ids" class="tab-section">
+  <h3>3.3. Селектори ідентифікаторів</h3>
+  <p>ID-селектори застосовуються для унікальних елементів сторінки (наприклад, логотип).</p>
+
+  <pre><code>#WakeFlow_logo{
+  border-radius: 100%;
+  background: transparent;
+}</code></pre>
+
+  <p><strong>HTML-приклад використання id:</strong></p>
+  <pre><code>&lt;img id="WakeFlow_logo" src="img/logo.png" alt="WakeFlow_logo" width="100" /&gt;</code></pre>
+</section>
+
+<section id="lab2-sel-other" class="tab-section">
+  <h3>3.4. Інші селектори</h3>
+
+  <h4>Універсальний селектор</h4>
+  <pre><code>*{ box-sizing: border-box; }</code></pre>
+
+  <h4>Дочірній комбінатор (child combinator)</h4>
+  <pre><code>header &gt; div a{
+  display:inline-flex;
+  align-items:center;
+  gap: 12px;
+}</code></pre>
+
+  <h4>Селектор атрибуту (attribute selector)</h4>
+  <pre><code>nav[aria-label="Головна навігація"] ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}</code></pre>
+
+  <h4>Псевдокласи</h4>
+  <pre><code>a:hover{ color: var(--accent); }
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(70,215,255,.55);
+  box-shadow: 0 0 0 4px rgba(70,215,255,.12);
+}
+
+nav[aria-label="Головна навігація"] li:last-child a{
+  border-color: rgba(182,255,59,.35);
+  background: rgba(182,255,59,.12);
+}</code></pre>
+
+  <p><em>Додатково (за потреби приклад “сусіднього селектора”):</em></p>
+  <pre><code>/* Adjacent sibling selector (для ЛР2): абзац одразу після h3 */
+h3 + p{ margin-top: 6px; }</code></pre>
+</section>
+
+<section id="lab2-css-blocks" class="tab-section">
+  <h3>4. CSS: Шрифти, текст, таблиці, фон, контур, списки, CSS просунутий</h3>
+
+  <h4>4.1. Шрифти і текст</h4>
+  <pre><code>body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+h1{ font-size: clamp(28px, 3.8vw, 54px); letter-spacing:-0.9px; }
+h2{ font-size: clamp(20px, 2.2vw, 30px); }
+
+p{
+  margin:0 0 12px;
+  color: var(--muted);
+}</code></pre>
+
+  <h4>4.2. Таблиці</h4>
+  <pre><code>.table-wrap{
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.02);
+}
+
+thead th{
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  font-weight: 700;
+}
+
+tbody tr:hover{ background: rgba(182,255,59,.06); }</code></pre>
+
+  <h4>4.3. Фон і контур (border, radius, shadow)</h4>
+  <pre><code>main &gt; section{
+  margin: 18px 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(0,0,0,.22);
+}
+
+body{
+  background:
+    radial-gradient(1100px 600px at 85% 10%, rgba(182,255,59,.14), transparent 60%),
+    radial-gradient(900px 600px at 15% 45%, rgba(70,215,255,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 45%, var(--bg) 100%);
+}</code></pre>
+
+  <h4>4.4. Списки</h4>
+  <pre><code>#about ul, #about ol{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+#about li{ margin: 6px 0; }</code></pre>
+
+  <h4>4.5. CSS просунутий (Flexbox, Grid, адаптивність)</h4>
+  <pre><code>header{
+  position: sticky;
+  top:0;
+  z-index: 20;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 18px;
+  background: rgba(1, 44, 20, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 980px){
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px){
+  header{ flex-direction: column; align-items: flex-start; }
+  .gallery-grid{ grid-template-columns: 1fr; }
+  .two-col{ grid-template-columns: 1fr; }
+}</code></pre>
+</section>
+
+<section id="lab2-output" class="tab-section">
+  <h3>5. Місце виведення інформації</h3>
+
+  <p>
+    Результати CSS-оформлення відображаються на головній сторінці WakeFlow.
+    Нижче наведено приклади відображення інтерфейсу на різних розмірах екрана
+    (desktop, tablet, mobile), що демонструють роботу сітки, типографіки та адаптивних правил.
+  </p>
+
+  <div class="screens-grid">
+    <figure class="screen">
+      <img
+        src="img/lab1-main.png"
+        alt="WakeFlow — вигляд на desktop (ширина понад 980px)"
+        loading="lazy"
+        width="1200"
+        height="750"
+      />
+      <figcaption>Desktop (ширина &gt; 980px)</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <img
+        src="img/lab2-tablet.png"
+        alt="WakeFlow — вигляд на tablet (ширина 768–980px)"
+        loading="lazy"
+        width="900"
+        height="700"
+      />
+      <figcaption>Tablet (≈ 768–980px)</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <img
+        src="img/lab2-mobile.png"
+        alt="WakeFlow — вигляд на mobile (ширина до 640px)"
+        loading="lazy"
+        width="420"
+        height="900"
+      />
+      <figcaption>Mobile (≤ 640px)</figcaption>
+    </figure>
   </div>
+</section>
 
-  <!-- вкладки з лабораторними -->
-  <nav class="lab-tabs" aria-label="Перемикач лабораторних робіт">
-    <a class="lab-tab active" href="#lab1" data-lab-tab="lab1">Лабораторна робота №1</a>
-    <a class="lab-tab" href="#lab2" data-lab-tab="lab2">Лабораторна робота №2</a>
-     <a class="lab-tab" href="#lab3" data-lab-tab="lab3">Лабораторна робота №3</a>
-  </nav>
-</header>
+<section id="lab2-summary" class="tab-section">
+  <h3>6. Висновки</h3>
 
-<div class="layout">
-  <!-- меню зліва -->
-  <aside aria-label="Навігація по розділах">
+  <p>
+    У ході виконання лабораторної роботи №2 реалізовано CSS-оформлення веб-застосунку WakeFlow із використанням
+    зовнішнього файлу стилів. Опрацьовано базові принципи каскадування та спадкування, а також застосовано
+    змінні CSS для уніфікації палітри, відступів і візуальних параметрів інтерфейсу.
+  </p>
 
-    <!-- MENU: LAB 1 -->
-    <div data-lab-menu="lab1">
-      <a class="oval-button primary" href="#lab1-intro">Лабораторна робота №1</a>
-      <a class="oval-button" href="#lab1-topic">Тема, мета, місце розташування</a>
-      <a class="oval-button" href="#lab1-business">Опис предметного середовища<br>та бізнес-логіки</a>
-      <a class="oval-button" href="#lab1-structure">Структура документа</a>
-      <a class="oval-button" href="#lab1-table">HTML-код таблиці</a>
-      <a class="oval-button" href="#lab1-image">HTML-код зображення</a>
-      <a class="oval-button" href="#lab1-lists">HTML-код списків</a>
-      <a class="oval-button" href="#lab1-form">HTML-код форми</a>
-      <a class="oval-button" href="#lab1-main">Головна сторінка WEB-застосунку</a>
-      <a class="oval-button" href="#lab1-main-code">Код головної сторінки</a>
-      <a class="oval-button" href="#lab1-conclusion">Висновки</a>
-    </div>
+  <p>
+    У роботі використано різні типи селекторів: селектори тегів, класів, ідентифікаторів, атрибутів,
+    комбінатори та псевдокласи для інтерактивних станів елементів.
+    Для компонування сторінки застосовано Flexbox і CSS Grid, що забезпечило структурованість і масштабованість макета.
+  </p>
 
-    <!-- MENU: LAB 2 -->
-    <div data-lab-menu="lab2" hidden>
-      <a class="oval-button primary" href="#lab2-intro">Лабораторна робота №2</a>
-      <a class="oval-button" href="#lab2-topic">Тема, мета, місце розташування</a>
-      <a class="oval-button" href="#lab2-css">Опис CSS-оформлення</a>
-      <a class="oval-button" href="#lab2-layout">Сітка та компонування</a>
-      <a class="oval-button" href="#lab2-typography">Типографіка і палітра</a>
-      <a class="oval-button" href="#lab2-responsive">Адаптивність</a>
-      <a class="oval-button" href="#lab2-code">Фрагменти CSS-коду</a>
-      <a class="oval-button" href="#lab2-screens">Скріншоти</a>
-      <a class="oval-button" href="#lab2-conclusion">Висновки</a>
-    </div>
+  <p>
+    Реалізовано оформлення шрифтів і тексту, таблиць, списків, фону та контурів, а також адаптивні правила
+    через медіа-запити для коректного відображення на різних пристроях.
+    Отримані навички дозволяють створювати підтримуване та візуально узгоджене CSS-оформлення веб-сторінок.
+  </p>
+</section>
 
-     <!-- MENU: LAB 3 -->
-    <div data-lab-menu="lab3" hidden>
-      <a class="oval-button primary" href="#lab3-intro">Лабораторна робота №3</a>
-      <a class="oval-button" href="#lab2-topic">Тема, мета, місце розташування</a>
-    </div>
 
-  </aside>
+</section>
 
-  <!-- контент -->
-  <main aria-label="Контент звіту">
 
-    <!-- ===================== -->
-    <!-- LAB 1 CONTENT -->
-    <!-- ===================== -->
-    <section data-lab="lab1">
-      <h2 id="lab1">Лабораторна робота №1: Вейк-школа «WakeFlow»</h2>
+				<section data-lab="lab3" hidden>
+					<h2 id="lab3">Лабораторна робота №3:</h2>
+					<section id="#lab3-intro" class="tab-section">
+						<h3>Опис</h3>
+						<p>
+							Тут буде опис роботи №3.
+						</p>
+					</section>
+				</section>
 
-      <section id="lab1-intro" class="tab-section">
-        <h3>Вступ</h3>
-        <p>
-          Тут буде загальний опис лабораторної роботи №1 та посилання на реалізований веб-застосунок.
-          (Контент додамо наступним кроком.)
-        </p>
-      </section>
-
-      <section id="lab1-topic" class="tab-section">
-        <h3>1. Тема, мета, місце розташування</h3>
-       <h3>1. Тема, мета, місце розташування</h3>
-          <h4>Тема WEB-застосунку</h4>
-          <p><strong>Тема:</strong> тестовий WEB-застосунок вейк-школи <strong>WakeFlow</strong>.</p>
-          <h4>Мета створення WEB-застосунку</h4>
-          <p>
-            <strong>Мета:</strong> створити односторінковий сайт вейк-школи з інформативними розділами
-            (про школу, послуги, команда, галерея, контакти) та формою запису на заняття.
-            Форма має збирати дані користувача і відправляти заявку до Google Sheets через Google Apps Script.
-          </p>
-          <h4>Місце розташування роботи</h4>
-          <ul class="links-list">
-            <li>Репозиторій з кодом: <a href="#" target="_blank" rel="noopener">посилання на GitHub</a></li>
-            <li>Демо-сторінка (GitHub Pages): <a href="#" target="_blank" rel="noopener">посилання на live</a></li>
-            <li>Сторінка «Бізнес-логіка» (business.html): <a href="#" target="_blank" rel="noopener">посилання</a></li>
-          </ul>
-      </section>
-
-      <section id="lab1-business" class="tab-section">
-        <h3>2. Опис предметного середовища та бізнес-логіки</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-structure" class="tab-section">
-        <h3>3. Структура документа</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-table" class="tab-section">
-        <h3>4. HTML-код таблиці</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-image" class="tab-section">
-        <h3>5. HTML-код зображення</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-lists" class="tab-section">
-        <h3>6. HTML-код списків</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-form" class="tab-section">
-        <h3>7. HTML-код форми</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-main" class="tab-section">
-        <h3>8. Головна сторінка WEB-застосунку</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-main-code" class="tab-section">
-        <h3>9. Код головної сторінки</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab1-conclusion" class="tab-section">
-        <h3>10. Висновки</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-    </section>
-
-    <!-- ===================== -->
-    <!-- LAB 2 CONTENT -->
-    <!-- ===================== -->
-    <section data-lab="lab2" hidden>
-      <h2 id="lab2">Лабораторна робота №2: CSS-оформлення (каркас)</h2>
-
-      <section id="lab2-intro" class="tab-section">
-        <h3>0. Вступ (каркас)</h3>
-        <p>
-          Тут буде короткий опис того, які CSS-прийоми застосовано у роботі №2.
-          (Контент додамо наступним кроком.)
-        </p>
-      </section>
-
-      <section id="lab2-topic" class="tab-section">
-        <h3>1. Тема, мета, місце розташування</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-css" class="tab-section">
-        <h3>2. Опис CSS-оформлення</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-layout" class="tab-section">
-        <h3>3. Сітка та компонування</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-typography" class="tab-section">
-        <h3>4. Типографіка і палітра</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-responsive" class="tab-section">
-        <h3>5. Адаптивність</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-code" class="tab-section">
-        <h3>6. Фрагменти CSS-коду</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-screens" class="tab-section">
-        <h3>7. Скріншоти</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-
-      <section id="lab2-conclusion" class="tab-section">
-        <h3>8. Висновки</h3>
-        <p>(Каркас. Заповнимо пізніше.)</p>
-      </section>
-    </section>
-
-  </main>
-</div>
-
- <!-- ===================== -->
-    <!-- LAB 3 CONTENT -->
-    <!-- ===================== -->
-    <section data-lab="lab3" hidden>
-      <h2 id="lab3">Лабораторна робота №3:</h2>
-
-      <section id="lab3-intro" class="tab-section">
-         <h3>Опис</h3>
-        <p>
-          Тут буде короткий опис роботи №3.
-        </p>
-      </section>
-    </section>
-
-  </main>
-</div>
-
-<footer class="page-footer">
-  Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань»
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+			</main>
+		</div>
+	</body>
+</html></main></div><footer class="page-footer">Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань»</footer><script src="script.js"></script></body></html>

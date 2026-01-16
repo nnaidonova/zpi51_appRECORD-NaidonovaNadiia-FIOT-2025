@@ -183,6 +183,29 @@ h1{
 
 .lab-tab:focus{ outline:none; box-shadow: var(--focus); }
 
+/* Вкладені підпункти меню (під "Структура документа") */
+.submenu{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                 /* відстань між підпунктами */
+  margin: 8px 0 4px 12px;    /* відступ групи вправо */
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,.12); /* вертикальна лінія-ієрархія */
+}
+
+/* Самі підпункти */
+.oval-button.sub{
+  padding: 10px 14px;        /* трохи компактніше */
+  font-size: 0.92rem;
+  opacity: .92;
+}
+
+/* (опційно) hover для підпунктів */
+.oval-button.sub:hover{
+  opacity: 1;
+}
+
+
 /* =========================
    LAYOUT
 ========================= */
@@ -503,4 +526,26 @@ a:hover{ color: var(--accent); }
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+.screen{
+  margin: 12px 0 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+}
+
+.screen img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.screen figcaption{
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
 }
