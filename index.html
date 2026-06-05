@@ -78,6 +78,20 @@
 					<a class="oval-button primary" href="#lab3-intro">Лабораторна робота №3</a>
 				</div>
 
+        <div data-lab-menu="lab4" hidden>
+          <a class="oval-button primary" href="#lab4-topic">Тема, мета, посилання</a>
+          <a class="oval-button" href="#lab4-task1">Завдання №1</a>
+          <a class="oval-button" href="#lab4-task2">Завдання №2</a>
+          <a class="oval-button" href="#lab4-task3">Завдання №3</a>
+          <a class="oval-button" href="#lab4-task4">Завдання №4</a>
+          <a class="oval-button" href="#lab4-task5">Завдання №5</a>
+          <a class="oval-button" href="#lab4-task6">Завдання №6</a>
+          <a class="oval-button" href="#lab4-task7">Завдання №7 — варіант 2</a>
+          <a class="oval-button" href="#lab4-task8">Завдання №8</a>
+          <a class="oval-button" href="#lab4-task9">Завдання №9 — варіант 2</a>
+          <a class="oval-button" href="#lab4-summary">Висновки</a>
+        </div>
+
 			</aside>
 
 			<main aria-label="Контент звіту">
@@ -868,7 +882,7 @@ body{
 
 				<section data-lab="lab3" hidden>
 					<h2 id="lab3">Лабораторна робота №3:</h2>
-					<section id="#lab3-intro" class="tab-section">
+					<section id="lab3-intro" class="tab-section">
 						<h3>Опис</h3>
 						<p>
 							Тут буде опис роботи №3.
@@ -876,7 +890,295 @@ body{
 					</section>
 				</section>
 
+
+<section data-lab="lab4" hidden>
+  <h2 id="lab4">Лабораторна робота №4: Основи JavaScript у HTML-документі</h2>
+
+  <section id="lab4-topic" class="tab-section">
+    <h3>Тема, мета та місце розташування</h3>
+    <p><strong>Тема:</strong> основи JavaScript у HTML-документі; шаблонні рядки; керування порядком обчислень; масиви; методи масивів; функції.</p>
+    <p><strong>Мета:</strong> придбати практичні навички роботи з конструкціями JavaScript, масивами та функціями у JS-сценаріях; реалізувати програми засобами JavaScript.</p>
+    <p><strong>Варіант виконання:</strong> завдання для парного номера студента; для завдань №7 і №9 — варіант №2.</p>
+    <ul class="links-list">
+      <li>Репозиторій WEB-застосунку: <a href="https://github.com/nnaidonova/zpi51_appWEB-NaidonovaNadiia-FIOT-2025" target="_blank" rel="noopener">GitHub</a></li>
+      <li>Жива сторінка WEB-застосунку: <a href="https://nnaidonova.github.io/zpi51_appWEB-NaidonovaNadiia-FIOT-2025/index.html" target="_blank" rel="noopener">GitHub Pages</a></li>
+      <li>Репозиторій звітного HTML-документа: <a href="https://github.com/nnaidonova/zpi51_appRECORD-NaidonovaNadiia-FIOT-2025" target="_blank" rel="noopener">GitHub</a></li>
+      <li>Жива сторінка звітного HTML-документа: <a href="https://nnaidonova.github.io/zpi51_appRECORD-NaidonovaNadiia-FIOT-2025/index.html" target="_blank" rel="noopener">GitHub Pages</a></li>
+    </ul>
+    <p>Реалізація завдань міститься у файлі <code>lab4.js</code>. Кнопки нижче запускають відповідні функції, а результати додатково виводяться у Console браузера.</p>
+  </section>
+
+<section id="lab4-task1" class="tab-section">
+  <h3>Завдання №1</h3>
+  <div class="task-condition"><strong>Умова:</strong> Зберегти введене значення часу у форматі «год:хв» у змінну, вивести його у Console шаблонним рядком, визначити чверть години та показати відповідь через <code>alert()</code>.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function runLab4Task1() {
+  const hour = prompt(&quot;Введіть час у форматі год:хв&quot;);
+  const match = hour?.trim().match(/^(\d{1,2}):(\d{2})$/);
+  if (!match) return alert(&quot;Некоректний формат часу&quot;);
+
+  const hours = Number(match[1]);
+  const minutes = Number(match[2]);
+  if (hours &gt; 23 || minutes &gt; 59) return alert(&quot;Некоректний час&quot;);
+
+  let quarter;
+  if (minutes &lt; 15) quarter = &quot;перша чверть години&quot;;
+  else if (minutes &lt; 30) quarter = &quot;друга чверть години&quot;;
+  else if (minutes &lt; 45) quarter = &quot;третя чверть години&quot;;
+  else quarter = &quot;четверта чверть години&quot;;
+
+  console.log(`Введений час: ${hour}. Це ${quarter}.`);
+  alert(quarter);
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="1">Виконати завдання №1</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-1" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task2" class="tab-section">
+  <h3>Завдання №2</h3>
+  <div class="task-condition"><strong>Умова:</strong> Змінна <code>day</code> набуває значення від <code>1</code> до <code>7</code>. Через <code>switch-case</code> визначити відповідний день тижня та вивести результат у Console.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function runLab4Task2() {
+  const day = prompt(&quot;Введіть номер дня тижня від 1 до 7&quot;);
+  let finish;
+
+  switch (day) {
+    case &quot;1&quot;: finish = &quot;понеділок&quot;; break;
+    case &quot;2&quot;: finish = &quot;вівторок&quot;; break;
+    case &quot;3&quot;: finish = &quot;середа&quot;; break;
+    case &quot;4&quot;: finish = &quot;четвер&quot;; break;
+    case &quot;5&quot;: finish = &quot;п’ятниця&quot;; break;
+    case &quot;6&quot;: finish = &quot;субота&quot;; break;
+    case &quot;7&quot;: finish = &quot;неділя&quot;; break;
+    default: finish = &quot;Некоректне значення&quot;;
+  }
+  console.log(`Результат: ${finish}`);
+  alert(finish);
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="2">Виконати завдання №2</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-2" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task3" class="tab-section">
+  <h3>Завдання №3</h3>
+  <div class="task-condition"><strong>Умова:</strong> Створити користувачів <code>User1</code>, <code>User2</code>, <code>User3</code> з паролями. Запитати логін і пароль через <code>prompt()</code>, виконати перевірки та показати результат через <code>alert()</code>.</div>
+  <p>Демонстраційні паролі: <code>User1 — pass1</code>, <code>User2 — pass2</code>, <code>User3 — pass3</code>.</p>
+  <h4>Програмний код</h4>
+  <pre><code>function runLab4Task3() {
+  const users = { User1: &quot;pass1&quot;, User2: &quot;pass2&quot;, User3: &quot;pass3&quot; };
+  let login;
+
+  do {
+    login = prompt(&quot;Введіть логін: User1, User2 або User3&quot;);
+  } while (login !== null &amp;&amp; login.trim() === &quot;&quot;);
+
+  if (login === null) return alert(&quot;Cancelled&quot;);
+  login = login.trim();
+  console.log(`Введений логін: ${login}`);
+
+  if (!Object.hasOwn(users, login)) return alert(&quot;I don&#x27;t know you&quot;);
+  const password = prompt(`Введіть пароль для ${login}`);
+  alert(password === users[login] ? `Hello, ${login}` : &quot;Wrong password&quot;);
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="3">Виконати завдання №3</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-3" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task4" class="tab-section">
+  <h3>Завдання №4</h3>
+  <div class="task-condition"><strong>Умова:</strong> Оголосити функцію <code>getShippingMessage(country, price, deliveryFee)</code>, яка повертає повідомлення із загальною вартістю товару та доставки.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function getShippingMessage(country, price, deliveryFee) {
+  const totalPrice = price + deliveryFee;
+  return `Shipping to ${country} will cost ${totalPrice} credits`;
+}
+
+console.log(getShippingMessage(&quot;Australia&quot;, 120, 50));</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="4">Виконати завдання №4</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-4" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task5" class="tab-section">
+  <h3>Завдання №5</h3>
+  <div class="task-condition"><strong>Умова:</strong> Оголосити функцію <code>makeTransaction(quantity, pricePerDroid, customerCredits)</code>. Перевірити достатність коштів і повернути повідомлення про покупку або <code>Insufficient funds!</code>.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function makeTransaction(quantity, pricePerDroid, customerCredits) {
+  const totalPrice = quantity * pricePerDroid;
+  if (totalPrice &gt; customerCredits) return &quot;Insufficient funds!&quot;;
+  return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="5">Виконати завдання №5</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-5" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task6" class="tab-section">
+  <h3>Завдання №6</h3>
+  <div class="task-condition"><strong>Умова:</strong> Оголосити функцію <code>makeArray(firstArray, secondArray, maxLength)</code>, яка об’єднує два масиви та, за потреби, обмежує довжину результату.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function makeArray(firstArray, secondArray, maxLength) {
+  const newArray = firstArray.concat(secondArray);
+  return newArray.length &gt; maxLength
+    ? newArray.slice(0, maxLength)
+    : newArray;
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="6">Виконати завдання №6</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-6" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task7" class="tab-section">
+  <h3>Завдання №7</h3>
+  <div class="task-condition"><strong>Умова:</strong> Варіант №2: створити одновимірний масив; знайти суму елементів із парними індексами, максимальний елемент та його індекс, мінімальний елемент та його індекс серед елементів із непарними індексами; упорядкувати масив за зростанням.</div>
+  <p>Масив вводиться через <code>prompt()</code> як послідовність цілих чисел, розділених пробілами.</p>
+  <h4>Програмний код</h4>
+  <pre><code>function analyzeArrayVariant2(numbers) {
+  const evenIndexSum = numbers.reduce(
+    (sum, value, index) =&gt; index % 2 === 0 ? sum + value : sum, 0
+  );
+  const maxValue = Math.max(...numbers);
+  const maxIndex = numbers.indexOf(maxValue);
+  const oddIndexItems = numbers
+    .map((value, index) =&gt; ({ value, index }))
+    .filter(item =&gt; item.index % 2 !== 0);
+  const minOdd = oddIndexItems.reduce(
+    (min, item) =&gt; item.value &lt; min.value ? item : min
+  );
+  return { evenIndexSum, maxValue, maxIndex, minOdd };
+}
+
+function sortAscending(numbers) {
+  return [...numbers].sort((a, b) =&gt; a - b);
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="7">Виконати завдання №7</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-7" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task8" class="tab-section">
+  <h3>Завдання №8</h3>
+  <div class="task-condition"><strong>Умова:</strong> Створити двовимірний масив додатних і від’ємних чисел за допомогою генератора випадкових чисел; зберегти перший і останній елементи в окремі змінні; вставити число <code>25</code> після другого елемента.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>function createRandomMatrix(rows = 3, columns = 4, min = -20, max = 20) {
+  return Array.from({ length: rows }, () =&gt;
+    Array.from({ length: columns }, () =&gt;
+      Math.floor(Math.random() * (max - min + 1)) + min
+    )
+  );
+}
+
+const matrix = createRandomMatrix();
+const flatArray = matrix.flat();
+const firstElement = flatArray[0];
+const lastElement = flatArray.at(-1);
+flatArray.splice(2, 0, 25);</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="8">Виконати завдання №8</button>
+  </div>
+  
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-8" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+<section id="lab4-task9" class="tab-section">
+  <h3>Завдання №9</h3>
+  <div class="task-condition"><strong>Умова:</strong> Варіант №2: сформувати багаторівневе динамічне меню зі статичного масиву. Пункти меню повинні відкривати відповідні сторінки або розділи.</div>
+  
+  <h4>Програмний код</h4>
+  <pre><code>const dynamicMenuItems = [
+  { label: &quot;Головна&quot;, href: &quot;index.html&quot; },
+  {
+    label: &quot;Лабораторні роботи&quot;,
+    children: [
+      { label: &quot;Лабораторна №1&quot;, href: &quot;index.html#lab1&quot; },
+      { label: &quot;Лабораторна №2&quot;, href: &quot;index.html#lab2&quot; },
+      { label: &quot;Лабораторна №4&quot;, href: &quot;index.html#lab4&quot; }
+    ]
+  }
+];
+
+function createDynamicMenu(items) {
+  const list = document.createElement(&quot;ul&quot;);
+  items.forEach(item =&gt; {
+    const li = document.createElement(&quot;li&quot;);
+    const link = document.createElement(&quot;a&quot;);
+    link.textContent = item.label;
+    link.href = item.href || &quot;#&quot;;
+    li.append(link);
+    if (item.children) li.append(createDynamicMenu(item.children));
+    list.append(li);
+  });
+  return list;
+}</code></pre>
+  <div class="task-actions">
+    <button type="button" data-run-lab4="9">Виконати завдання №9</button>
+  </div>
+  <div id="lab4-dynamic-menu-demo" class="dynamic-menu-demo" aria-label="Демонстрація динамічного меню"></div>
+  <h4>Результат виконання</h4>
+  <pre id="lab4-result-9" class="task-result" hidden>Результат з’явиться після запуску.</pre>
+  <p class="task-note">Для звіту відкрийте DevTools → Console, виконайте завдання та додайте скріншот результату в папку <code>img</code>.</p>
+</section>
+
+  <section id="lab4-summary" class="tab-section">
+    <h3>Висновки</h3>
+    <p>
+      У ході лабораторної роботи №4 було опрацьовано базові конструкції JavaScript: введення та виведення даних через
+      <code>prompt()</code>, <code>alert()</code> і Console, умовні оператори, конструкцію <code>switch-case</code>, шаблонні рядки,
+      функції, одновимірні та двовимірні масиви, методи <code>concat()</code>, <code>slice()</code>, <code>splice()</code>,
+      <code>reduce()</code>, <code>filter()</code>, <code>flat()</code> і <code>sort()</code>.
+    </p>
+    <p>
+      Також реалізовано перевірку авторизаційних даних, обчислення вартості доставки та покупки, аналіз і сортування масивів,
+      генерацію випадкової матриці та створення багаторівневого меню на основі статичного масиву даних.
+    </p>
+  </section>
+</section>
+
+
 			</main>
 		</div>
+
+    <footer class="page-footer">Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань»</footer>
+    <script src="script.js"></script>
+    <script src="lab4.js"></script>
 	</body>
-</html></main></div><footer class="page-footer">Звітний HTML-документ з дисципліни «Проєктування WEB-застосувань»</footer><script src="script.js"></script></body></html>
+</html>
