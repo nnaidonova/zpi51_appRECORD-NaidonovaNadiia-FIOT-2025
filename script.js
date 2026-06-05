@@ -3,77 +3,82 @@ document.addEventListener("DOMContentLoaded", function () {
   const labMenus = document.querySelectorAll("[data-lab-menu]");
   const labBlocks = document.querySelectorAll("main > section[data-lab]");
 
-  function setActiveLab(labName) {
-    // tabs active state
-    labTabs.forEach(t => t.classList.toggle("active", t.dataset.labTab === labName));
-
-    // show/hide left menus
-    labMenus.forEach(menu => {
-      menu.hidden = (menu.dataset.labMenu !== labName);
-    });
-
-    // show/hide main lab blocks
-    labBlocks.forEach(block => {
-      block.hidden = (block.dataset.lab !== labName);
-    });
-
-    // activate first section of chosen lab
+  function activateSection(labName, targetId) {
     const activeBlock = document.querySelector(`main > section[data-lab="${labName}"]`);
-    if (!activeBlock) return;
+    const activeMenu = document.querySelector(`[data-lab-menu="${labName}"]`);
+    if (!activeBlock || !activeMenu) return;
 
     const sections = activeBlock.querySelectorAll(".tab-section");
-    sections.forEach(sec => sec.classList.remove("active"));
-    if (sections.length > 0) sections[0].classList.add("active");
-
-    // set first left-menu item as primary
-    const activeMenu = document.querySelector(`[data-lab-menu="${labName}"]`);
-    if (!activeMenu) return;
     const links = activeMenu.querySelectorAll(".oval-button");
-    links.forEach(l => l.classList.remove("primary"));
-    if (links.length > 0) links[0].classList.add("primary");
+    const targetSection = targetId
+      ? activeBlock.querySelector(`#${CSS.escape(targetId)}`)
+      : sections[0];
 
-    // optional: align hash for readability
-    // window.location.hash = `#${labName}`;
+    sections.forEach(section => section.classList.remove("active"));
+    links.forEach(link => link.classList.remove("primary"));
+
+    const sectionToShow = targetSection || sections[0];
+    if (sectionToShow) sectionToShow.classList.add("active");
+
+    const activeLink = sectionToShow
+      ? activeMenu.querySelector(`a[href="#${CSS.escape(sectionToShow.id)}"]`)
+      : null;
+
+    if (activeLink) activeLink.classList.add("primary");
+    else if (links[0]) links[0].classList.add("primary");
   }
 
-  // LEFT MENU: click handlers (delegation for each menu)
+  function setActiveLab(labName, targetId = "") {
+    const activeBlock = document.querySelector(`main > section[data-lab="${labName}"]`);
+    const activeMenu = document.querySelector(`[data-lab-menu="${labName}"]`);
+
+    // Не перемикаємося на вкладку, для якої ще не створено контент або меню.
+    if (!activeBlock || !activeMenu) return;
+
+    labTabs.forEach(tab => {
+      tab.classList.toggle("active", tab.dataset.labTab === labName);
+    });
+
+    labMenus.forEach(menu => {
+      menu.hidden = menu.dataset.labMenu !== labName;
+    });
+
+    labBlocks.forEach(block => {
+      block.hidden = block.dataset.lab !== labName;
+    });
+
+    activateSection(labName, targetId);
+  }
+
   labMenus.forEach(menu => {
-    menu.addEventListener("click", function (e) {
-      const link = e.target.closest("a.oval-button");
+    menu.addEventListener("click", function (event) {
+      const link = event.target.closest("a.oval-button");
       if (!link) return;
 
       const targetId = link.getAttribute("href").replace("#", "");
-      const targetSection = document.getElementById(targetId);
-      if (!targetSection) return;
+      if (!document.getElementById(targetId)) return;
 
-      e.preventDefault();
-
-      // determine current active lab by visible menu
+      event.preventDefault();
       const labName = menu.dataset.labMenu;
-      const activeBlock = document.querySelector(`main > section[data-lab="${labName}"]`);
-      if (!activeBlock) return;
-
-      // hide all sections within active lab
-      activeBlock.querySelectorAll(".tab-section").forEach(sec => sec.classList.remove("active"));
-
-      // show selected section
-      targetSection.classList.add("active");
-
-      // highlight clicked link
-      menu.querySelectorAll(".oval-button").forEach(l => l.classList.remove("primary"));
-      link.classList.add("primary");
+      setActiveLab(labName, targetId);
+      history.replaceState(null, "", `#${targetId}`);
     });
   });
 
-  // TOP TABS: click handlers
   labTabs.forEach(tab => {
-    tab.addEventListener("click", function (e) {
-      e.preventDefault();
-      setActiveLab(this.dataset.labTab);
+    tab.addEventListener("click", function (event) {
+      event.preventDefault();
+      const labName = this.dataset.labTab;
+      setActiveLab(labName);
+      history.replaceState(null, "", `#${labName}`);
     });
   });
 
-  // Initial lab (by hash if #lab2 exists, else lab1)
-  const initial = (window.location.hash === "#lab2") ? "lab2" : "lab1";
-  setActiveLab(initial);
+  const hash = window.location.hash.replace("#", "");
+  const sectionFromHash = hash ? document.getElementById(hash) : null;
+  const labFromSection = sectionFromHash?.closest("main > section[data-lab]")?.dataset.lab;
+  const initialLab = labFromSection || (document.querySelector(`main > section[data-lab="${hash}"]`) ? hash : "lab1");
+  const initialSection = labFromSection ? hash : "";
+
+  setActiveLab(initialLab, initialSection);
 });
